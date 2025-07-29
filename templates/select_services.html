@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<main class="main">
+
+  <!-- Page Title -->
+  <div class="page-title">
+    <div class="breadcrumbs">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#"><i class="bi bi-house"></i> Home</a></li>
+          <li class="breadcrumb-item active current">Service Selection</li>
+        </ol>
+      </nav>
+    </div>
+
+    <div class="title-wrapper">
+      <h1>Select Services</h1>
+      <p>Please choose the services required for {{ patient.first_name }} {{ patient.last_name }}.</p>
+    </div>
+  </div>
+
+  <!-- Service Selection Form Section -->
+  <section id="contact" class="contact section">
+    <div class="container">
+      <div class="contact-form-panel">
+        <div class="form-container">
+          <h3>Available Services</h3>
+          <p>Select the services the patient is requesting or needs.</p>
+
+          <form method="post">
+            {% csrf_token %}
+
+            {% for service in services %}
+              <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" name="service_{{ service.id }}" id="service_{{ service.id }}">
+                <label class="form-check-label" for="service_{{ service.id }}">
+                  <strong>{{ service.name }}</strong><br>
+                  <small>{{ service.description }}</small>
+                </label>
+              </div>
+            {% endfor %}
+
+            <div class="d-grid mt-4">
+              <button type="submit" class="btn-submit">
+                Continue to Signature <i class="bi bi-arrow-right ms-2"></i>
+              </button>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+{% endblock content %}

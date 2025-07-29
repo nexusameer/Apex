@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<main class="main">
+  <div class="page-title">
+    <div class="breadcrumbs">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#"><i class="bi bi-house"></i> Home</a></li>
+          <li class="breadcrumb-item active current">Profile Details</li>
+        </ol>
+      </nav>
+    </div>
+
+    <div class="title-wrapper">
+      <h1>Patient Profile Form</h1>
+      <p>Please complete the patient’s full details.</p>
+    </div>
+  </div>
+
+  <section id="contact" class="contact section">
+    <div class="container">
+      <div class="contact-form-panel">
+        <div class="form-container">
+          <h3>Complete Profile Info</h3>
+          <p>Fill out the remaining details for {{ patient.first_name }} {{ patient.last_name }}</p>
+
+          <form method="post">
+            {% csrf_token %}
+
+            <!-- Basic Info -->
+            <div class="form-floating mb-3">
+              <input type="date" class="form-control" name="dob" required>
+              <label for="dob">Date of Birth</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <select class="form-select" name="birth_sex" required>
+                <option value="" disabled selected>Choose Birth Sex</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+              <label for="birth_sex">Birth Sex</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <select class="form-select" name="gender_identity" required>
+                <option value="" disabled selected>Choose Gender Identity</option>
+                <option value="Lesbian">Lesbian</option>
+                <option value="Gay">Gay</option>
+                <option value="Transgender">Transgender</option>
+                <option value="Bisexual">Bisexual</option>
+              </select>
+              <label for="gender_identity">Gender Identity</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" name="email" required>
+              <label for="email">Email</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" name="primary_phone" required>
+              <label for="primary_phone">Primary Phone</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" name="address" required>
+              <label for="address">Address</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" name="po_box">
+              <label for="po_box">P.O. Box</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" name="emergency_contact_name">
+              <label for="emergency_contact_name">Emergency Contact Name</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" name="emergency_contact_phone">
+              <label for="emergency_contact_phone">Emergency Contact Phone</label>
+            </div>
+
+            <!-- Insurance Fields -->
+            <hr class="my-4">
+
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" name="insurance_id" required>
+              <label for="insurance_id">Insurance ID</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" name="insurance_company" required>
+              <label for="insurance_company">Insurance Company</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" name="policy_group" required>
+              <label for="policy_group">Policy Group</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" name="policy_holder_name" required>
+              <label for="policy_holder_name">Policy Holder Name</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" name="policy_holder_relationship" required>
+              <label for="policy_holder_relationship">Relationship to Policy Holder</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <input type="date" class="form-control" name="policy_holder_dob" required>
+              <label for="policy_holder_dob">Policy Holder DOB</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" name="policy_holder_address" required>
+              <label for="policy_holder_address">Policy Holder Address</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" name="policy_holder_phone" required>
+              <label for="policy_holder_phone">Policy Holder Phone</label>
+            </div>
+
+            <div class="d-grid">
+              <button type="submit" class="btn-submit">Submit Profile <i class="bi bi-send-fill ms-2"></i></button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+{% endblock content %}
