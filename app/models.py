@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
 import uuid
-
+from cloudinary.models import CloudinaryField 
 
 
 # =====================
@@ -56,7 +56,8 @@ class PatientProfile(models.Model):
     policy_holder_address = models.TextField()
     policy_holder_phone = models.CharField(max_length=15, null=True, blank=True)
 
-
+    profile_image = CloudinaryField('image', blank=True, null=True)
+    
     def __str__(self):
         return f"{self.user.first_name} {self.user.last_name}"
 
