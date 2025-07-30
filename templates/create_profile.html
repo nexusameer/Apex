@@ -25,7 +25,9 @@
         <div class="form-container">
           <h3>Complete Profile Info</h3>
           <p>Fill out the remaining details for {{ patient.first_name }} {{ patient.last_name }}</p>
-
+          {% if error %}
+            <div class="alert alert-danger">{{ error }}</div>
+          {% endif %}
           <form method="post">
             {% csrf_token %}
 
@@ -47,6 +49,7 @@
             <div class="form-floating mb-3">
               <select class="form-select" name="gender_identity" required>
                 <option value="" disabled selected>Choose Gender Identity</option>
+                <option value="Straight">Straight</option>
                 <option value="Lesbian">Lesbian</option>
                 <option value="Gay">Gay</option>
                 <option value="Transgender">Transgender</option>
@@ -126,6 +129,11 @@
             <div class="form-floating mb-3">
               <input type="text" class="form-control" name="policy_holder_phone" required>
               <label for="policy_holder_phone">Policy Holder Phone</label>
+            </div>
+
+            <div class="mb-3">
+              <label for="profile_image" class="form-label">Profile Image (Max 1MB)</label>
+              <input type="file" name="profile_image" accept="image/*" class="form-control" required>
             </div>
 
             <div class="d-grid">

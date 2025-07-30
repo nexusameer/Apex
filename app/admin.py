@@ -26,7 +26,7 @@ class PatientAdmin(admin.ModelAdmin):
 class PatientProfileAdmin(admin.ModelAdmin):
     list_display = (
         'user', 'first_name', 'last_name', 'dob', 'birth_sex', 'gender_identity',
-        'email', 'primary_phone'
+        'email', 'primary_phone', 'image_tag'
     )
     search_fields = (
         'user__first_name', 'user__last_name', 'email',
@@ -37,7 +37,7 @@ class PatientProfileAdmin(admin.ModelAdmin):
 
     fieldsets = (
         ('Basic Info', {
-            'fields': ('user', 'dob', 'birth_sex', 'gender_identity', 'email', 'primary_phone', 'address', 'po_box')
+            'fields': ('user', 'dob', 'birth_sex', 'gender_identity', 'email', 'primary_phone', 'address', 'po_box', 'profile_image', 'image_tag')
         }),
         ('Emergency Contact', {
             'fields': ('emergency_contact_name', 'emergency_contact_phone')
@@ -53,6 +53,7 @@ class PatientProfileAdmin(admin.ModelAdmin):
             )
         }),
     )
+    readonly_fields = ('image_tag',) 
 
     list_per_page = 20
 

@@ -21,7 +21,11 @@ CLOUDINARY_STORAGE = {
     'API_KEY': '881419276781671',
     'API_SECRET': 'X8us4wbU7nV2YOavehzL22ZEYvo'
 }
-
+cloudinary.config( 
+  cloud_name = CLOUDINARY_STORAGE['CLOUD_NAME'], 
+  api_key = CLOUDINARY_STORAGE['API_KEY'], 
+  api_secret = CLOUDINARY_STORAGE['API_SECRET'] 
+)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent

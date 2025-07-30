@@ -44,6 +44,13 @@ def create_patient(request):
 def create_profile(request, patient_id):
     patient = get_object_or_404(Patient, id=patient_id)
 
+    profile_image = request.FILES.get('profile_image')
+    if profile_image and profile_image.size > 1024 * 1024:
+        return render(request, 'create_profile.html', {
+            'patient': patient,
+            'error': 'Image file must be under 1MB.'
+        })
+
     if request.method == 'POST':
         profile = PatientProfile.objects.create(
             user=patient,
@@ -64,6 +71,7 @@ def create_profile(request, patient_id):
             policy_holder_dob=request.POST.get('policy_holder_dob'),
             policy_holder_address=request.POST.get('policy_holder_address'),
             policy_holder_phone=request.POST.get('policy_holder_phone'),
+            profile_image=profile_image
         )
 
         return redirect('select_services', username=patient.username)

@@ -427,7 +427,7 @@
             <div class="doctor-card">
               <div class="doctor-image">
                 <img src="{% static 'assets/img/doctor/doctor1.jpeg' %}" alt="Dr. Sarah Mitchell" class="img-fluid">
-                <div class="availability-badge online">Available</div>
+                {% comment %} <div class="availability-badge online">Available</div>   {% endcomment %}
               </div>
               <div class="doctor-info">
                 <h5>Dr. Aditi Nerurkar</h5>
@@ -449,12 +449,12 @@
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="doctor-card">
               <div class="doctor-image">
-                <img src="{% static 'assets/img/health/staff-7.webp' %}" alt="Dr. Michael Rodriguez" class="img-fluid">
-                <div class="availability-badge busy">In Surgery</div>
+                <img src="{% static 'assets/img/doctor/anik.jpeg' %}" alt="Dr. Michael Rodriguez" class="img-fluid">
+                {% comment %} <div class="availability-badge busy">In Surgery</div> {% endcomment %}
               </div>
               <div class="doctor-info">
-                <h5>Dr. Michael Rodriguez</h5>
-                <p class="specialty">Medical Doctor specializing in Psychiatry</p>
+                <h5>Anik Saha, MD</h5>
+                <p class="specialty">Board-Certified Psychiatrist</p>
                 <p class="experience">12+ years experience</p>
                 <div class="rating">
                   <i class="bi bi-star-fill"></i>
@@ -469,37 +469,15 @@
             </div>
           </div><!-- End Doctor Card -->
 
+          
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="doctor-card">
               <div class="doctor-image">
-                <img src="{% static 'assets/img/health/staff-1.webp' %}" alt="Dr. Emily Chen" class="img-fluid">
-                <div class="availability-badge online">Available</div>
+                <img src="{% static 'assets/img/doctor/Michael.jpeg' %}" alt="Dr. James Thompson" class="img-fluid">
+                {% comment %} <div class="availability-badge offline">Next: Tomorrow 9AM</div> {% endcomment %}
               </div>
               <div class="doctor-info">
-                <h5>Dr. Emily Chen</h5>
-                <p class="specialty">Board-certified Psychiatrist</p>
-                <p class="experience">8+ years experience</p>
-                <div class="rating">
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <span class="rating-text">(5.0)</span>
-                </div>
-                
-              </div>
-            </div>
-          </div><!-- End Doctor Card -->
-
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="doctor-card">
-              <div class="doctor-image">
-                <img src="{% static 'assets/img/health/staff-9.webp' %}" alt="Dr. James Thompson" class="img-fluid">
-                <div class="availability-badge offline">Next: Tomorrow 9AM</div>
-              </div>
-              <div class="doctor-info">
-                <h5>Dr. James Thompson</h5>
+                <h5>Michael Mahgerefteh, MD</h5>
                 <p class="specialty">Licensed Psychiatrist (MD)</p>
                 <p class="experience">20+ years experience</p>
                 <div class="rating">
@@ -518,12 +496,12 @@
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="doctor-card">
               <div class="doctor-image">
-                <img src="{% static 'assets/img/health/staff-5.webp' %}" alt="Dr. Lisa Anderson" class="img-fluid">
-                <div class="availability-badge online">Available</div>
+                <img src="{% static 'assets/img/doctor/Nitin gotay.jpeg' %}" alt="Dr. Lisa Anderson" class="img-fluid">
+                {% comment %} <div class="availability-badge online">Available</div> {% endcomment %}
               </div>
               <div class="doctor-info">
-                <h5>Dr. Lisa Anderson</h5>
-                <p class="specialty">Dermatology</p>
+                <h5>Nitin Gogtay, M.D</h5>
+                <p class="specialty">Doctor of Physical Therapy</p>
                 <p class="experience">10+ years experience</p>
                 <div class="rating">
                   <i class="bi bi-star-fill"></i>
@@ -541,12 +519,12 @@
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="doctor-card">
               <div class="doctor-image">
-                <img src="{% static 'assets/img/health/staff-12.webp' %}" alt="Dr. Robert Kim" class="img-fluid">
-                <div class="availability-badge online">Available</div>
+                <img src="{% static 'assets/img/doctor/Elana miller.jpeg' %}" alt="Dr. Robert Kim" class="img-fluid">
+                {% comment %} <div class="availability-badge online">Available</div> {% endcomment %}
               </div>
               <div class="doctor-info">
-                <h5>Dr. Robert Kim</h5>
-                <p class="specialty">Oncology</p>
+                <h5>Elana Miller, MD </h5>
+                <p class="specialty">Integrative Psychiatrist</p>
                 <p class="experience">18+ years experience</p>
                 <div class="rating">
                   <i class="bi bi-star-fill"></i>
@@ -561,15 +539,37 @@
             </div>
           </div><!-- End Doctor Card -->
 
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="doctor-card">
+              <div class="doctor-image">
+                <img src="{% static 'assets/img/doctor/kristiana.jpeg' %}" alt="Dr. Emily Chen" class="img-fluid">
+                {% comment %} <div class="availability-badge online">Available</div> {% endcomment %}
+              </div>
+              <div class="doctor-info">
+                <h5>Kristina Poole</h5>
+                <p class="specialty">Board-certified Psychiatrist</p>
+                <p class="experience">8+ years experience</p>
+                <div class="rating">
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <span class="rating-text">(5.0)</span>
+                </div>
+                
+              </div>
+            </div>
+          </div><!-- End Doctor Card -->
         </div>
-
+        
       </div>
 
     </section><!-- /Find A Doctor Section -->
 
     <!-- Call To Action Section -->
     <section id="call-to-action" class="call-to-action section">
-
+      
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
         <div class="row justify-content-center">

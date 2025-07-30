@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 import uuid
 from cloudinary.models import CloudinaryField 
+from django.utils.html import format_html
 
 
 # =====================
@@ -58,6 +59,11 @@ class PatientProfile(models.Model):
 
     profile_image = CloudinaryField('image', blank=True, null=True)
     
+    def image_tag(self):
+        if self.profile_image:
+            return format_html('<img src="{}" width="400" height="400" style="border-radius:8px;" />', self.profile_image.url)
+        return "No image"
+
     def __str__(self):
         return f"{self.user.first_name} {self.user.last_name}"
 
