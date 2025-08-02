@@ -40,5 +40,5 @@ jobs:
         username: root
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
-          cd /root/apex
-          mkdir ameer
+          cd /root
+          ./deploy.sh
