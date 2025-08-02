@@ -26,6 +26,10 @@ RUN pip install -r requirements.txt
 # Copy project files
 COPY . .
 
+
+# ✅ Copy .env file (important for decouple or dotenv use)
+COPY .env .env
+
 # Collect static files (recommended for prod)
 # RUN python manage.py collectstatic --noinput
 
