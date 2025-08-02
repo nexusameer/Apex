@@ -27,3 +27,18 @@ jobs:
         context: .
         push: true
         tags: nexusameer/apex:latest
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: SSH and run deploy.sh
+      uses: appleboy/ssh-action@v1.0.0
+      with:
+        host: ${{ secrets.DROPLET_IP }}
+        username: root
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script: |
+          cd /root/apex
+          mkdir ameer
