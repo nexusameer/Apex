@@ -27,12 +27,13 @@ RUN pip install -r requirements.txt
 COPY . .
 
 # Collect static files (recommended for prod)
-RUN python manage.py collectstatic --noinput
+# RUN python manage.py collectstatic --noinput
 
 # Expose Django port
 EXPOSE 8001
 
 # Start Gunicorn
 # CMD ["gunicorn", "apex.wsgi:application", "--bind", "0.0.0.0:8001"]
-CMD ["gunicorn", "apex.wsgi:application", "--bind", "0.0.0.0:8001", "--timeout", "120"]
+# CMD ["gunicorn", "apex.wsgi:application", "--bind", "0.0.0.0:8001", "--timeout", "120"]
+CMD ["sh", "-c", "python manage.py collectstatic --noinput && gunicorn apex.wsgi:application --bind 0.0.0.0:8001 --timeout 120"]
 
