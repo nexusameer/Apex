@@ -44,8 +44,8 @@ class PatientProfile(models.Model):
     primary_phone = models.CharField(max_length=15)
     address = models.TextField()
     po_box = models.CharField(max_length=300, blank=True, null=True)
-    emergency_contact_name = models.CharField(max_length=300)
-    emergency_contact_phone = models.CharField(max_length=15)
+    emergency_contact_name = models.CharField(max_length=300, null=True, blank=True)
+    emergency_contact_phone = models.CharField(max_length=15, null=True, blank=True)
     services = models.ManyToManyField(Service, blank=True)
 
     insurance_id = models.CharField(max_length=300, null=True, blank=True)
@@ -53,8 +53,8 @@ class PatientProfile(models.Model):
     policy_group = models.CharField(max_length=300, null=True, blank=True)
     policy_holder_name = models.CharField(max_length=300, null=True, blank=True)
     policy_holder_relationship = models.CharField(max_length=50, null=True, blank=True)
-    policy_holder_dob = models.DateField()
-    policy_holder_address = models.TextField()
+    policy_holder_dob = models.DateField(null=True, blank=True)
+    policy_holder_address = models.TextField(null=True, blank=True)
     policy_holder_phone = models.CharField(max_length=15, null=True, blank=True)
 
     profile_image = CloudinaryField('image', blank=True, null=True)

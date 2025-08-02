@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import TemplateView
+from datetime import datetime
 from .models import *
 
 class IndexView(TemplateView):
@@ -52,6 +53,18 @@ def create_profile(request, patient_id):
         })
 
     if request.method == 'POST':
+        # Parse DOB safely
+        raw_dob = request.POST.get('policy_holder_dob')
+        policy_holder_dob = None
+        if raw_dob:
+            try:
+                policy_holder_dob = datetime.strptime(raw_dob, '%Y-%m-%d').date()
+            except ValueError:
+                return render(request, 'create_profile.html', {
+                    'patient': patient,
+                    'error': 'Invalid date format for Policy Holder DOB. Use YYYY-MM-DD.'
+                })
+
         profile = PatientProfile.objects.create(
             user=patient,
             dob=request.POST.get('dob'),
@@ -68,7 +81,7 @@ def create_profile(request, patient_id):
             policy_group=request.POST.get('policy_group'),
             policy_holder_name=request.POST.get('policy_holder_name'),
             policy_holder_relationship=request.POST.get('policy_holder_relationship'),
-            policy_holder_dob=request.POST.get('policy_holder_dob'),
+            policy_holder_dob=policy_holder_dob,
             policy_holder_address=request.POST.get('policy_holder_address'),
             policy_holder_phone=request.POST.get('policy_holder_phone'),
             profile_image=profile_image
@@ -92,7 +105,7 @@ def select_services(request, username):
         patient_profile.services.set(selected_service_ids)  # Replaces old services with new
         patient_profile.save()
 
-        return redirect('index')  # or redirect to next step like 'signature'
+        return redirect('error')  # or redirect to next step like 'signature'
 
     return render(request, 'select_services.html', {
         'patient': patient,
