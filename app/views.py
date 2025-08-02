@@ -19,7 +19,7 @@ class TermsView(TemplateView):
     template_name = 'Terms.html'
 
 class ServiceView(TemplateView):
-    template_name = 'service.html'
+    template_name = 'services.html'
 
 class ErrorView(TemplateView):
     template_name = '404.html'
