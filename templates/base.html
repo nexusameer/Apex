@@ -1,175 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Mind Relief</title>
+    <meta name="description" content="Mind Relief Clinic - Advanced Medical Care for Your Family's Health. Leading healthcare specialists providing comprehensive medical services." />
+    <meta name="keywords" content="healthcare, medical clinic, doctors, mental health, mind relief, medical care" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#049ebb" />
 
-<head>
-  {% load static %}
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Mind Relief</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+    <!-- Resource hints for faster loading -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preload" href="{% static 'assets/js/main.js' %}" as="script">
 
-  <!-- Favicons -->
-  <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
-  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+    <!-- Favicons with optimized loading -->
+    <link href="{% static 'assets/img/favicon.png' %}" rel="icon" />
+    <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon" />
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Lato:wght@300;400;700&family=Raleway:wght@400;500;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Fonts with optimized loading -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Lato:wght@300;400;700&family=Raleway:wght@400;500;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Lato:wght@300;400;700&family=Raleway:wght@400;500;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet"></noscript>
 
-  <!-- Vendor CSS Files -->
-  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+    <!-- Critical CSS inline for above-the-fold content -->
+    <style>
+      /* Critical CSS for immediate render */
+      body{margin:0;font-family:Roboto,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif;line-height:1.6;color:#2c3031;background-color:#fff}
+      .header{position:fixed;top:0;left:0;right:0;z-index:997;background:rgba(255,255,255,0.9);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,0.1)}
+      .logo{text-decoration:none;display:flex;align-items:center}
+      .btn-getstarted{background:#049ebb;color:#fff;padding:8px 20px;border-radius:50px;text-decoration:none;transition:0.3s}
+      .hero{min-height:100vh;display:flex;align-items:center;background:#021418}
+      .container{max-width:1200px;margin:0 auto;padding:0 15px}
+      .d-flex{display:flex}.align-items-center{align-items:center}.justify-content-between{justify-content:space-between}
+    </style>
 
-  <!-- Main CSS File -->
-  <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+    <!-- Non-critical CSS loaded asynchronously -->
+    <link rel="preload" href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet"></noscript>
+    
+    <!-- Load other CSS files asynchronously -->
+    <link rel="preload" href="{% static 'assets/css/main.css' %}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="{% static 'assets/css/main.css' %}" rel="stylesheet"></noscript>
+    
+    <link rel="preload" href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet"></noscript>
+    
+    <!-- Defer non-critical vendor CSS -->
+    <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="{% static 'assets/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet" media="print" onload="this.media='all'">
 
-  <!-- =======================================================
+    <!--  =======================================================
   * Template Name: MediTrust
   * Template URL: https://bootstrapmade.com/meditrust-bootstrap-hospital-website-template/
   * Updated: Jul 04 2025 with Bootstrap v5.3.7
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
-  ======================================================== -->
-</head>
+  ========================================================  -->
+  </head>
 
-<body class="index-page">
-
-  <header id="header" class="header d-flex align-items-center fixed-top">
-    <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
-
-      <a href="{% url 'index' %}" class="logo d-flex align-items-center me-auto me-xl-0">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <img src="{% static 'assets/img/logo.png' %}" alt="">
-        <h1 class="sitename" style="line-height: 0.7; font-family: 'Poppins', sans-serif; color: #0cc0df;">
-            Mind Relief<br>
-          <span style="font-size: 0.6em; font-family: 'Alice'; color: #6cabda; font-style: italic;">Clinic</span>
-        </h1>      
-      </a>
-<nav id="navmenu" class="navmenu">
-  <ul>
-    <li><a href="{% url 'index' %}" class="{% if request.resolver_match.url_name == 'index' %}active{% endif %}">Home</a></li>
-    <li><a href="{% url 'about' %}" class="{% if request.resolver_match.url_name == 'about' %}active{% endif %}">About</a></li>
-    <li><a href="{% url 'service' %}" class="{% if request.resolver_match.url_name == 'service' %}active{% endif %}">Services</a></li>
-    <li><a href="{% url 'doctor' %}" class="{% if request.resolver_match.url_name == 'doctor' %}active{% endif %}">Doctors</a></li>
-    <li><a href="{% url 'contact' %}" class="{% if request.resolver_match.url_name == 'contact' %}active{% endif %}">Contact</a></li>
-  </ul>
-  <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-</nav>
-
-
-      <a class="btn-getstarted" href="{% url 'create_patient' %}">Book Appointment</a>
-
-    </div>
-  </header>
-  {% comment %} {% if messages %}
-  <ul class="messages">
-    {% for message in messages %}
-      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-    {% endfor %}
-  </ul>
-{% endif %} {% endcomment %}
-    {% block content%}
-    {%endblock%}
-  <footer id="footer" class="footer position-relative light-background">
-
-    <div class="container footer-top">
-      <div class="row gy-4">
-        <div class="col-lg-4 col-md-6 footer-about">
-          <a href="index.html" class="logo d-flex align-items-center">
-            <span class="sitename">Mind Relief</span>
-          </a>
-          <div class="footer-contact pt-3">
-            <p>A108 Adam Street</p>
-            <p>New York, NY 535022</p>
-            <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-            <p><strong>Email:</strong> <span>info@example.com</span></p>
-          </div>
-          <div class="social-links d-flex mt-4">
-            <a href=""><i class="bi bi-twitter-x"></i></a>
-            <a href=""><i class="bi bi-facebook"></i></a>
-            <a href=""><i class="bi bi-instagram"></i></a>
-            <a href=""><i class="bi bi-linkedin"></i></a>
-          </div>
-        </div>
-
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Useful Links</h4>
+  <body class="index-page">
+    <header id="header" class="header d-flex align-items-center fixed-top">
+      <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+        <a href="{% url 'index' %}" class="logo d-flex align-items-center me-auto me-xl-0">
+          <!-- Optimized logo with proper dimensions -->
+          <img src="{% static 'assets/img/logo.png' %}" alt="Mind Relief Clinic Logo" width="40" height="40" loading="eager" />
+          <h1 class="sitename" style="line-height: 0.7; font-family: 'Poppins', sans-serif; color: #0cc0df;">
+            Mind Relief<br />
+            <span style="font-size: 0.6em; font-family: 'Alice'; color: #6cabda; font-style: italic;">Clinic</span>
+          </h1>
+        </a>
+        <nav id="navmenu" class="navmenu">
           <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Terms of service</a></li>
-            <li><a href="#">Privacy policy</a></li>
+            <li>
+              <a href="{% url 'index' %}" class="{% if request.resolver_match.url_name == 'index' %}active{% endif %}">Home</a>
+            </li>
+            <li>
+              <a href="{% url 'about' %}" class="{% if request.resolver_match.url_name == 'about' %}active{% endif %}">About</a>
+            </li>
+            <li>
+              <a href="{% url 'service' %}" class="{% if request.resolver_match.url_name == 'service' %}active{% endif %}">Services</a>
+            </li>
+            <li>
+              <a href="{% url 'doctor' %}" class="{% if request.resolver_match.url_name == 'doctor' %}active{% endif %}">Doctors</a>
+            </li>
+            <li>
+              <a href="{% url 'contact' %}" class="{% if request.resolver_match.url_name == 'contact' %}active{% endif %}">Contact</a>
+            </li>
           </ul>
-        </div>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
 
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Our Services</h4>
-          <ul>
-            <li><a href="#">Web Design</a></li>
-            <li><a href="#">Web Development</a></li>
-            <li><a href="#">Product Management</a></li>
-            <li><a href="#">Marketing</a></li>
-            <li><a href="#">Graphic Design</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Hic solutasetp</h4>
-          <ul>
-            <li><a href="#">Molestiae accusamus iure</a></li>
-            <li><a href="#">Excepturi dignissimos</a></li>
-            <li><a href="#">Suscipit distinctio</a></li>
-            <li><a href="#">Dilecta</a></li>
-            <li><a href="#">Sit quas consectetur</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Nobis illum</h4>
-          <ul>
-            <li><a href="#">Ipsam</a></li>
-            <li><a href="#">Laudantium dolorum</a></li>
-            <li><a href="#">Dinera</a></li>
-            <li><a href="#">Trodelas</a></li>
-            <li><a href="#">Flexo</a></li>
-          </ul>
-        </div>
-
+        <a class="btn-getstarted" href="{% url 'create_patient' %}">Book Appointment</a>
       </div>
-    </div>
+    </header>
 
-    <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">MyWebsite</strong> <span>All Rights Reserved</span></p>
-    </div>
+    {% block content %}
 
-  </footer>
+    {% endblock %}
 
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <footer id="footer" class="footer position-relative light-background">
+      <div class="container footer-top">
+        <div class="row gy-4">
+          <div class="col-lg-4 col-md-6 footer-about">
+            <a href="index.html" class="logo d-flex align-items-center"><span class="sitename">Mind Relief</span></a>
+            <div class="footer-contact pt-3">
+              <p>A108 Adam Street</p>
+              <p>New York, NY 535022</p>
+              <p class="mt-3">
+                <strong>Phone:</strong> <span>+1 5589 55488 55</span>
+              </p>
+              <p>
+                <strong>Email:</strong> <span>info@example.com</span>
+              </p>
+            </div>
+            <div class="social-links d-flex mt-4">
+              <a href=""><i class="bi bi-twitter-x"></i></a>
+              <a href=""><i class="bi bi-facebook"></i></a>
+              <a href=""><i class="bi bi-instagram"></i></a>
+              <a href=""><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
 
-  <!-- Preloader -->
-  <div id="preloader"></div>
+          <div class="col-lg-2 col-md-3 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li>
+                <a href="#">Home</a>
+              </li>
+              <li>
+                <a href="#">About us</a>
+              </li>
+              <li>
+                <a href="#">Services</a>
+              </li>
+              <li>
+                <a href="#">Terms of service</a>
+              </li>
+              <li>
+                <a href="#">Privacy policy</a>
+              </li>
+            </ul>
+          </div>
 
-  <!-- Vendor JS Files -->
-  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}" defer></script>
-  <script src="{% static 'assets/vendor/aos/aos.js' %}" defer></script>
-  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}" defer></script>
-  <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}" defer></script>
-  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}" defer></script>
-  <script src="{% static 'assets/vendor/imagesloaded/imagesloaded.pkgd.min.js' %}" defer></script>
-  <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}" defer></script>
-  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}" defer></script>
+          <div class="col-lg-2 col-md-3 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              <li>
+                <a href="#">Web Design</a>
+              </li>
+              <li>
+                <a href="#">Web Development</a>
+              </li>
+              <li>
+                <a href="#">Product Management</a>
+              </li>
+              <li>
+                <a href="#">Marketing</a>
+              </li>
+              <li>
+                <a href="#">Graphic Design</a>
+              </li>
+            </ul>
+          </div>
 
-  <!-- Main JS File -->
-  <script src="{% static 'assets/js/main.js' %}" defer></script>
+          <div class="col-lg-2 col-md-3 footer-links">
+            <h4>Hic solutasetp</h4>
+            <ul>
+              <li>
+                <a href="#">Molestiae accusamus iure</a>
+              </li>
+              <li>
+                <a href="#">Excepturi dignissimos</a>
+              </li>
+              <li>
+                <a href="#">Suscipit distinctio</a>
+              </li>
+              <li>
+                <a href="#">Dilecta</a>
+              </li>
+              <li>
+                <a href="#">Sit quas consectetur</a>
+              </li>
+            </ul>
+          </div>
 
-</body>
+          <div class="col-lg-2 col-md-3 footer-links">
+            <h4>Nobis illum</h4>
+            <ul>
+              <li>
+                <a href="#">Ipsam</a>
+              </li>
+              <li>
+                <a href="#">Laudantium dolorum</a>
+              </li>
+              <li>
+                <a href="#">Dinera</a>
+              </li>
+              <li>
+                <a href="#">Trodelas</a>
+              </li>
+              <li>
+                <a href="#">Flexo</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
 
+      <div class="container copyright text-center mt-4">
+        <p>
+          © <span>Copyright</span> <strong class="px-1 sitename">MyWebsite</strong> <span>All Rights Reserved</span>
+        </p>
+      </div>
+    </footer>
+
+    <!-- Scroll Top -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Preloader -->
+    <div id="preloader"></div>
+
+    <!-- Vendor JS Files -->
+    <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}" defer></script>
+    <script src="{% static 'assets/vendor/aos/aos.js' %}" defer></script>
+    <script src="{% static 'assets/vendor/php-email-form/validate.js' %}" defer></script>
+    <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}" defer></script>
+    <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}" defer></script>
+    <script src="{% static 'assets/vendor/imagesloaded/imagesloaded.pkgd.min.js' %}" defer></script>
+    <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}" defer></script>
+    <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}" defer></script>
+
+    <!-- Main JS File -->
+    <script src="{% static 'assets/js/main.js' %}" defer></script>
+  </body>
 </html>
