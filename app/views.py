@@ -92,6 +92,7 @@ def create_profile(request, patient_id):
     return render(request, 'create_profile.html', {'patient': patient})
 
 
+
 def select_services(request, username):
     patient = get_object_or_404(Patient, username=username)
     services = Service.objects.all()
