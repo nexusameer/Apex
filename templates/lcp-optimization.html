@@ -1,0 +1,54 @@
+<!-- Ultra-fast LCP optimization script -->
+<script>
+// Critical performance optimizations for sub-2.5s LCP
+(function() {
+  'use strict';
+  
+  // Preload critical resources immediately
+  function preloadCritical() {
+    // Preload hero image if not already done
+    const heroImg = document.querySelector('link[rel="preload"][as="image"]');
+    if (!heroImg) {
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.as = 'image';
+      link.href = '/static/assets/img/health/showcase-1-lcp.webp';
+      link.fetchpriority = 'high';
+      document.head.appendChild(link);
+    }
+  }
+  
+  // Optimize CSS loading
+  function optimizeCSSLoading() {
+    // Force immediate application of async CSS
+    const asyncCSS = document.querySelectorAll('link[media="print"]');
+    asyncCSS.forEach(function(link) {
+      link.addEventListener('load', function() {
+        this.media = 'all';
+      });
+    });
+  }
+  
+  // Initialize optimizations
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+      preloadCritical();
+      optimizeCSSLoading();
+    });
+  } else {
+    preloadCritical();
+    optimizeCSSLoading();
+  }
+  
+  // Optimize images for faster LCP
+  function optimizeImages() {
+    const heroImg = document.querySelector('.hero-image img');
+    if (heroImg) {
+      heroImg.setAttribute('fetchpriority', 'high');
+      heroImg.setAttribute('loading', 'eager');
+    }
+  }
+  
+  window.addEventListener('load', optimizeImages);
+})();
+</script>
