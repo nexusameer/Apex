@@ -1,38 +1,47 @@
-# Add these optimizations to your Django settings.py
+# Django Performance Settings for Mind Relief Clinic
 
-# ===============================
-# PERFORMANCE OPTIMIZATIONS
-# ===============================
+"""
+Add these settings to your Django settings.py file to improve performance
+and fix the cache lifetime and document request latency issues.
+"""
 
-# Static files compression and caching
+# STATIC FILES OPTIMIZATION
+import os
+from django.conf import settings
+
+# Enable static file compression and caching
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# Install: pip install whitenoise
+# Add these middleware for better performance
 MIDDLEWARE = [
-    'whitenoise.middleware.WhiteNoiseMiddleware',
-    # ... your other middleware
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # Add this for static file serving
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# Cache control headers
-WHITENOISE_MAX_AGE = 31536000  # 1 year for static files
-
-# Database connection optimization
-DATABASES = {
+# CACHING CONFIGURATION
+CACHES = {
     'default': {
-        # ... your database config
-        'CONN_MAX_AGE': 600,  # Keep connections alive for 10 minutes
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': 'unique-snowflake',
+        'TIMEOUT': 300,  # 5 minutes
         'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-            'charset': 'utf8mb4',
+            'MAX_ENTRIES': 1000,
         }
     }
 }
 
-# Template caching (for production)
-if not DEBUG:
-    TEMPLATES = [{
+# TEMPLATE CACHING
+TEMPLATES = [
+    {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -40,55 +49,105 @@ if not DEBUG:
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
-            'loaders': [(
-                'django.template.loaders.cached.Loader', [
+            'loaders': [
+                ('django.template.loaders.cached.Loader', [
                     'django.template.loaders.filesystem.Loader',
                     'django.template.loaders.app_directories.Loader',
-                ]
-            )],
+                ]),
+            ],
         },
-    }]
+    },
+]
 
-# Session optimization
-SESSION_COOKIE_AGE = 1209600  # 2 weeks
-SESSION_SAVE_EVERY_REQUEST = False
-SESSION_EXPIRE_AT_BROWSER_CLOSE = False
-
-# Security headers that also improve performance
-SECURE_BROWSER_XSS_FILTER = True
-SECURE_CONTENT_TYPE_NOSNIFF = True
-SECURE_HSTS_SECONDS = 31536000 if not DEBUG else 0
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-SECURE_HSTS_PRELOAD = True
-
-# Gzip compression
-USE_GZIP = True
-
-# Static files optimization
-STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
-
-# Media files optimization
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
-
-# Cache configuration (add this if you have Redis/Memcached)
-"""
-CACHES = {
+# DATABASE OPTIMIZATION
+DATABASES = {
     'default': {
-        'BACKEND': 'django.core.cache.backends.redis.RedisCache',
-        'LOCATION': 'redis://127.0.0.1:6379/1',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
         'OPTIONS': {
-            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
-        },
-        'KEY_PREFIX': 'mindrelief',
-        'TIMEOUT': 300,
+            'timeout': 20,
+        }
     }
 }
-"""
 
-# Additional optimizations
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-USE_TZ = True
-USE_I18N = False  # Disable if not using internationalization
-USE_L10N = False  # Disable if not using localization
+# SECURITY AND PERFORMANCE HEADERS
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+X_FRAME_OPTIONS = 'DENY'
+
+# COMPRESSION SETTINGS
+COMPRESS_ENABLED = True
+COMPRESS_CSS_FILTERS = [
+    'compressor.filters.css_default.CssAbsoluteFilter',
+    'compressor.filters.cssmin.rCSSMinFilter',
+]
+COMPRESS_JS_FILTERS = [
+    'compressor.filters.jsmin.JSMinFilter',
+]
+
+# SESSION OPTIMIZATION
+SESSION_CACHE_ALIAS = 'default'
+SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
+SESSION_COOKIE_AGE = 86400  # 24 hours
+
+# STATIC FILE SETTINGS FOR PRODUCTION
+if not DEBUG:
+    # Production static file settings
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+    WHITENOISE_USE_FINDERS = True
+    WHITENOISE_AUTOREFRESH = True
+    
+    # Cache control for static files
+    WHITENOISE_MAX_AGE = 31536000  # 1 year for static files
+
+# EMAIL BACKEND OPTIMIZATION (if using email)
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # For development
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  # For production
+
+# LOGGING CONFIGURATION
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'ERROR',
+            'class': 'logging.FileHandler',
+            'filename': 'django_errors.log',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'ERROR',
+            'propagate': True,
+        },
+    },
+}
+
+"""
+INSTALLATION REQUIREMENTS:
+pip install whitenoise django-compressor
+
+NGINX CONFIGURATION (if using nginx):
+Add these headers to your nginx config for better caching:
+
+server {
+    location /static/ {
+        expires 1y;
+        add_header Cache-Control "public, immutable";
+        add_header Vary Accept-Encoding;
+        gzip_static on;
+    }
+    
+    location /media/ {
+        expires 30d;
+        add_header Cache-Control "public";
+    }
+    
+    # Enable gzip compression
+    gzip on;
+    gzip_vary on;
+    gzip_min_length 1024;
+    gzip_types text/plain text/css text/xml text/javascript application/javascript application/json;
+}
+"""
