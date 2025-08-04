@@ -6,15 +6,24 @@
     <div class="container-fluid p-0">
       <div class="hero-wrapper">
         <div class="hero-image">
-          <img
-            src="{% static 'assets/img/health/showcase-1-lcp.webp' %}"
-            alt="Advanced Healthcare"
-            class="img-fluid"
-            loading="eager"
-            fetchpriority="high"
-            width="1000"
-            height="700"
-          />
+          <!-- Responsive hero image for mobile optimization -->
+          <picture>
+            <source 
+              media="(max-width: 768px)" 
+              srcset="{% static 'assets/img/health/showcase-1-mobile.webp' %}"
+              width="800" 
+              height="600"
+            >
+            <img
+              src="{% static 'assets/img/health/showcase-1-lcp.webp' %}"
+              alt="Advanced Healthcare"
+              class="img-fluid"
+              loading="eager"
+              fetchpriority="high"
+              width="1000"
+              height="700"
+            />
+          </picture>
         </div>
 
         <div class="hero-content">
