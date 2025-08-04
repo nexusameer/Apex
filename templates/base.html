@@ -16,6 +16,9 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preload" href="{% static 'assets/js/main.js' %}" as="script">
+    
+    <!-- Preload LCP image for fastest loading -->
+    <link rel="preload" href="{% static 'assets/img/health/showcase-1-optimized.webp' %}" as="image" fetchpriority="high">
 
     <!-- Favicons with optimized loading -->
     <link href="{% static 'assets/img/favicon.png' %}" rel="icon" />
