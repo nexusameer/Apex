@@ -5925,3 +5925,206 @@ section,
   padding-bottom: 60px;
   /* Add your styles here */
 }
+
+/*--------------------------------------------------------------
+# Insurance Slider Section
+--------------------------------------------------------------*/
+.insurance-section {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #f8fcfd 0%, #f0f9fa 100%);
+  overflow: hidden;
+}
+
+.insurance-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--heading-color);
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.insurance-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-color), #00b4d8);
+  border-radius: 2px;
+}
+
+.insurance-subtitle {
+  font-size: 1.1rem;
+  color: var(--default-color);
+  opacity: 0.8;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.insurance-slider-wrapper {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  overflow: hidden; /* Hide slides that go outside */
+  width: 100%;
+}
+
+.insurance-slider {
+  display: flex;
+  overflow: hidden;
+  border-radius: 15px;
+  position: relative;
+  width: calc(200px * 28 + 30px * 28); /* Width for 28 slides (14 original + 14 clones) */
+  animation: infiniteScroll 42s linear infinite;
+}
+
+.insurance-slider:hover {
+  animation-play-state: paused;
+}
+
+@keyframes infiniteScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-200px * 14 - 30px * 14)); /* Move exactly 14 slides */
+  }
+}
+
+.insurance-slide {
+  flex: 0 0 auto;
+  width: 200px;
+  height: 120px;
+  margin: 0 15px;
+  background: transparent; /* Remove white background */
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: none; /* Remove shadow */
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: visible; /* Allow content to overflow */
+  min-width: 200px;
+}
+
+.insurance-slide::before {
+  display: none; /* Remove the shine effect */
+}
+
+/* Removed hover shine effect */
+
+.insurance-slide:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(4, 158, 187, 0.2);
+}
+
+.insurance-slide img {
+  max-width: 180px; /* Increase from 140px to show more of the logo */
+  max-height: 100px; /* Increase from 80px */
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(0%); /* Remove grayscale to show full colors */
+  transition: all 0.3s ease;
+}
+
+.insurance-slide:hover img {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+
+.insurance-controls {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  display: none; /* Hidden for CSS-only animation */
+  justify-content: space-between;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.insurance-btn {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid var(--accent-color);
+  color: var(--accent-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  pointer-events: all;
+  box-shadow: 0 4px 15px rgba(4, 158, 187, 0.2);
+}
+
+.insurance-btn:hover {
+  background: var(--accent-color);
+  color: white;
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(4, 158, 187, 0.3);
+}
+
+.insurance-prev {
+  left: -10px;
+}
+
+.insurance-next {
+  right: -10px;
+}
+
+/* Smooth infinite scroll - continuous movement */
+.insurance-slider {
+  will-change: transform;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .insurance-section {
+    padding: 60px 0;
+  }
+  
+  .insurance-title {
+    font-size: 2rem;
+  }
+  
+  .insurance-subtitle {
+    font-size: 1rem;
+    padding: 0 20px;
+  }
+  
+  .insurance-slide {
+    width: 160px;
+    height: 100px;
+    margin: 0 10px;
+  }
+  
+  .insurance-slide img {
+    max-width: 120px;
+    max-height: 70px;
+  }
+  
+  .insurance-controls {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .insurance-slide {
+    width: 140px;
+    height: 90px;
+    margin: 0 8px;
+  }
+  
+  .insurance-slide img {
+    max-width: 100px;
+    max-height: 60px;
+  }
+}

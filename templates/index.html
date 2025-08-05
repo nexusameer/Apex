@@ -10,18 +10,18 @@
           <picture>
             <source 
               media="(max-width: 480px)" 
-              srcset="{% static 'assets/img/health/showcase-1-ultra-mobile.webp' %}"
+              srcset="{% static 'assets/img/hero_section/mind_resized_600x338.png' %}"
               width="600" 
               height="450"
             >
             <source 
               media="(max-width: 768px)" 
-              srcset="{% static 'assets/img/health/showcase-1-mobile.webp' %}"
+              srcset="{% static 'assets/img/hero_section/mind_resized_800x450.png' %}"
               width="800" 
               height="600"
             >
             <img
-              src="{% static 'assets/img/health/showcase-1-lcp.webp' %}"
+              src="{% static 'assets/img/hero_section/mind_resized_1000x563.png' %}"
               alt="Advanced Healthcare"
               class="img-fluid"
               loading="eager"
@@ -58,10 +58,10 @@ Our dedicated team provides mental health support and physical recovery plans de
                     data-aos="fade-up"
                     data-aos-delay="300"
                   >
-                    <a href="appointment.html" class="btn btn-primary"
+                    <a href="{% url 'create_patient' %}" class="btn btn-primary"
                       >Book Appointment</a
                     >
-                    <a href="services.html" class="btn btn-outline"
+                    <a href="{% url 'service' %}" class="btn btn-outline"
                       >Explore Services</a
                     >
                   </div>
@@ -99,7 +99,7 @@ Our dedicated team provides mental health support and physical recovery plans de
                     data-aos-delay="450"
                   >
                     <div class="feature-icon">
-                      <i class="bi bi-heart-pulse-fill"></i>
+                      <i class="bi bi-person-heart"></i>
                     </div>
                     <div class="feature-text">
                       <h3>Mental Health</h3>
@@ -118,7 +118,7 @@ Our dedicated team provides mental health support and physical recovery plans de
                     data-aos-delay="500"
                   >
                     <div class="feature-icon">
-                      <i class="bi bi-lungs-fill"></i>
+                      <i class="bi bi-emoji-smile"></i>
                     </div>
                     <div class="feature-text">
                       <h3>Behavioral Health</h3>
@@ -136,7 +136,7 @@ Our dedicated team provides mental health support and physical recovery plans de
                     data-aos-delay="550"
                   >
                     <div class="feature-icon">
-                      <i class="bi bi-capsule"></i>
+                      <i class="bi bi-person-walking"></i>
                     </div>
                     <div class="feature-text">
                       <h3>Physiotherapy</h3>
@@ -162,13 +162,13 @@ Our dedicated team provides mental health support and physical recovery plans de
         <div class="col-lg-6" data-aos="fade-right" data-aos-delay="200">
           <div class="about-image">
             <img
-              src="{% static 'assets/img/health/facilities-1.webp' %}"
+              src="{% static 'assets/img/home/facility_1.png' %}"
               alt="Modern Healthcare Facility"
               class="img-fluid rounded-3 mb-4"
               loading="lazy"
             />
             <div class="experience-badge">
-              <span class="years">25+</span>
+              <span class="years">15+</span>
               <span class="text">Years of Excellence</span>
             </div>
           </div>
@@ -176,28 +176,24 @@ Our dedicated team provides mental health support and physical recovery plans de
 
         <div class="col-lg-6" data-aos="fade-left" data-aos-delay="300">
           <div class="about-content">
-            <h2>Committed to Exceptional Patient Care</h2>
+            <h2>Committed to Your Mental Wellness</h2>
             <p class="lead">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
-              tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+              We are dedicated to supporting your journey toward emotional balance, mental clarity, and lasting well-being. Our team provides thoughtful, evidence-based psychiatric and psychotherapeutic care tailored to each individual’s unique needs.
             </p>
 
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-              consequat magna eu accumsan mattis. Duis non augue in tortor
-              facilisis tincidunt ac sit amet sapien. Suspendisse id risus non
-              nisi sodales condimentum.
+              Whether you’re navigating anxiety, depression, trauma, or life transitions, we offer a safe and compassionate environment for healing. Through personalized treatment plans and supportive therapy, we empower you to reclaim your peace of mind and move forward with confidence.
             </p>
 
             <div class="row g-4 mt-4">
               <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
                 <div class="feature-item">
                   <div class="icon">
-                    <i class="bi bi-heart-pulse"></i>
+                    <i class="bi bi-people-fill"></i>
                   </div>
-                  <h4>Compassionate Care</h4>
+                  <h4>Compassionate Support</h4>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    We listen, understand, and guide you with empathy and care.
                   </p>
                 </div>
               </div>
@@ -205,21 +201,21 @@ Our dedicated team provides mental health support and physical recovery plans de
               <div class="col-md-6" data-aos="fade-up" data-aos-delay="500">
                 <div class="feature-item">
                   <div class="icon">
-                    <i class="bi bi-star"></i>
+                    <i class="bi bi-clipboard2-pulse"></i>
                   </div>
-                  <h4>Medical Excellence</h4>
+                  <h4>Clinical Expertise</h4>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Rooted in proven methods, driven by a commitment to your mental health.
                   </p>
                 </div>
               </div>
             </div>
 
             <div class="cta-wrapper mt-4">
-              <a href="about.html" class="btn btn-primary"
+              <a href="{% url 'about' %}" class="btn btn-primary"
                 >Learn More About Us</a
               >
-              <a href="#" class="btn btn-outline">Meet Our Team</a>
+              <a href="{% url 'doctor' %}" class="btn btn-outline">Meet Our Team</a>
             </div>
           </div>
         </div>
@@ -242,8 +238,7 @@ Our dedicated team provides mental health support and physical recovery plans de
     <div class="container section-title" data-aos="fade-up">
       <h2>Featured Departments</h2>
       <p>
-        Necessitatibus eius consequatur ex aliquid fuga eum quidem sint
-        consectetur velit
+        Delivering personalized care and specialized treatment plans that address each patient’s unique mental health needs with compassion and precision.
       </p>
     </div>
     <!-- End Section Title -->
@@ -254,7 +249,7 @@ Our dedicated team provides mental health support and physical recovery plans de
           <div class="department-card">
             <div class="department-image">
               <img
-                src="{% static 'assets/img/health/cardiology-3.webp' %}"
+                src="{% static 'assets/img/service/service1.png' %}"
                 alt="Cardiology Department"
                 class="img-fluid"
                 loading="lazy"
@@ -271,10 +266,7 @@ Our dedicated team provides mental health support and physical recovery plans de
               <p>
                 Expert psychiatric care designed to restore emotional stability, enhance mental clarity, and guide patients toward long-term healing through structured evaluation, therapy, and medication support.
               </p>
-              <a href="department-details.html" class="btn-learn-more">
-                <span>Learn More</span>
-                <i class="fas fa-arrow-right"></i>
-              </a>
+              
             </div>
           </div>
         </div>
@@ -284,7 +276,7 @@ Our dedicated team provides mental health support and physical recovery plans de
           <div class="department-card">
             <div class="department-image">
               <img
-                src="{% static 'assets/img/health/neurology-2.webp' %}"
+                src="{% static 'assets/img/service/service2.png' %}"
                 alt="Neurology Department"
                 class="img-fluid"
                 loading="lazy"
@@ -301,10 +293,7 @@ Our dedicated team provides mental health support and physical recovery plans de
               <p>
                 Evidence-based behavioral therapy that helps individuals identify harmful patterns, build emotional resilience, and develop healthier responses—leading to meaningful, lasting change in daily life.
               </p>
-              <a href="department-details.html" class="btn-learn-more">
-                <span>Learn More</span>
-                <i class="fas fa-arrow-right"></i>
-              </a>
+              
             </div>
           </div>
         </div>
@@ -314,7 +303,7 @@ Our dedicated team provides mental health support and physical recovery plans de
           <div class="department-card">
             <div class="department-image">
               <img
-                src="{% static 'assets/img/health/orthopedics-4.webp' %}"
+                src="{% static 'assets/img/service/service3.png' %}"
                 alt="Orthopedics Department"
                 class="img-fluid"
                 loading="lazy"
@@ -331,10 +320,7 @@ Our dedicated team provides mental health support and physical recovery plans de
               <p>
                 Advanced physical rehabilitation that not only reduces pain and restores movement but also strengthens the mind-body connection to support confidence, independence, and overall well-being.
               </p>
-              <a href="department-details.html" class="btn-learn-more">
-                <span>Learn More</span>
-                <i class="fas fa-arrow-right"></i>
-              </a>
+              
             </div>
           </div>
         </div>
@@ -345,71 +331,119 @@ Our dedicated team provides mental health support and physical recovery plans de
   </section>
   <!-- /Featured Departments Section -->
 
-    <!-- /Insurance Section -->
-  <section id="home-about" class="home-about section">
+    <!-- Insurance Slider Section -->
+  <section id="insurance-section" class="insurance-section section">
     <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="col-12 text-center mb-4">
-          <h1 class="certification-title">We Accept Insurance</h1>
-        </div>
-        <div class="col-12">
-          <div class="certifications">
-            <div
-              class="certification-item"
-              data-aos="zoom-in"
-              data-aos-delay="700"
-            >
-              <img
-                src="{% static 'assets/img/clients/clients-1.webp' %}"
-                alt="Insurance Partner"
-                loading="lazy"
-                width="120"
-                height="80"
-              />
-            </div>
-            <div
-              class="certification-item"
-              data-aos="zoom-in"
-              data-aos-delay="800"
-            >
-              <img
-                src="{% static 'assets/img/clients/clients-2.webp' %}"
-                alt="Insurance Partner"
-                loading="lazy"
-                width="120"
-                height="80"
-              />
-            </div>
-            <div
-              class="certification-item"
-              data-aos="zoom-in"
-              data-aos-delay="900"
-            >
-              <img
-                src="{% static 'assets/img/clients/clients-3.webp' %}"
-                alt="Insurance Partner"
-                loading="lazy"
-                width="120"
-                height="80"
-              />
-            </div>
-            <div
-              class="certification-item"
-              data-aos="zoom-in"
-              data-aos-delay="1000"
-            >
-              <img
-                src="{% static 'assets/img/clients/clients-4.webp' %}"
-                alt="Insurance Partner"
-                loading="lazy"
-                width="120"
-                height="80"
-              />
-            </div>
-          </div>
+      <div class="row">
+        <div class="col-12 text-center mb-5">
+          <h2 class="insurance-title">We Accept Insurance</h2>
+          <p class="insurance-subtitle">Partnered with leading insurance providers to make quality healthcare accessible</p>
         </div>
       </div>
+      
+      <div class="insurance-slider-wrapper">
+        <div class="insurance-slider" id="insuranceSlider">
+          <!-- First set of slides -->
+          <div class="insurance-slide">
+            <img src="{% static 'assets/img/logo/logo1.webp' %}" alt="Aetna Insurance" loading="lazy" width="150" height="100" />
+          </div>
+          <div class="insurance-slide">
+            <img src="{% static 'assets/img/logo/logo2.webp' %}" alt="Blue Cross Blue Shield" loading="lazy" width="150" height="100" />
+          </div>
+          <div class="insurance-slide">
+            <img src="{% static 'assets/img/logo/logo3.webp' %}" alt="Cigna Insurance" loading="lazy" width="150" height="100" />
+          </div>
+          <div class="insurance-slide">
+            <img src="{% static 'assets/img/logo/logo4.png' %}" alt="UnitedHealthcare" loading="lazy" width="150" height="100" />
+          </div>
+          <div class="insurance-slide">
+            <img src="{% static 'assets/img/logo/logo5.png' %}" alt="Humana Insurance" loading="lazy" width="150" height="100" />
+          </div>
+          <div class="insurance-slide">
+            <img src="{% static 'assets/img/logo/logo6.png' %}" alt="Kaiser Permanente" loading="lazy" width="150" height="100" />
+          </div>
+          <div class="insurance-slide">
+            <img src="{% static 'assets/img/logo/logo7.webp' %}" alt="Anthem Insurance" loading="lazy" width="150" height="100" />
+          </div>
+          <div class="insurance-slide">
+            <img src="{% static 'assets/img/logo/logo8.webp' %}" alt="Molina Healthcare" loading="lazy" width="150" height="100" />
+          </div>
+          <div class="insurance-slide">
+            <img src="{% static 'assets/img/logo/logo9.webp' %}" alt="Medicare Insurance" loading="lazy" width="150" height="100" />
+          </div>
+          <div class="insurance-slide">
+            <img src="{% static 'assets/img/logo/logo1.webp' %}" alt="Medicaid Insurance" loading="lazy" width="150" height="100" />
+          </div>
+          <div class="insurance-slide">
+            <img src="{% static 'assets/img/logo/logo11.png' %}" alt="Tricare Insurance" loading="lazy" width="150" height="100" />
+          </div>
+          <div class="insurance-slide">
+            <img src="{% static 'assets/img/logo/logo12.webp' %}" alt="Optum Insurance" loading="lazy" width="150" height="100" />
+          </div>
+          <div class="insurance-slide">
+            <img src="{% static 'assets/img/logo/logo13.png' %}" alt="WellCare Insurance" loading="lazy" width="150" height="100" />
+          </div>
+          <div class="insurance-slide">
+            <img src="{% static 'assets/img/logo/logo14.png' %}" alt="Centene Insurance" loading="lazy" width="150" height="100" />
+          </div>
+          
+          <!-- Duplicate set for seamless infinite loop -->
+          <div class="insurance-slide">
+            <img src="{% static 'assets/img/logo/logo1.webp' %}" alt="Aetna Insurance" loading="lazy" width="150" height="100" />
+          </div>
+          <div class="insurance-slide">
+            <img src="{% static 'assets/img/logo/logo2.webp' %}" alt="Blue Cross Blue Shield" loading="lazy" width="150" height="100" />
+          </div>
+          <div class="insurance-slide">
+            <img src="{% static 'assets/img/logo/logo3.webp' %}" alt="Cigna Insurance" loading="lazy" width="150" height="100" />
+          </div>
+          <div class="insurance-slide">
+            <img src="{% static 'assets/img/logo/logo4.png' %}" alt="UnitedHealthcare" loading="lazy" width="150" height="100" />
+          </div>
+          <div class="insurance-slide">
+            <img src="{% static 'assets/img/logo/logo5.png' %}" alt="Humana Insurance" loading="lazy" width="150" height="100" />
+          </div>
+          <div class="insurance-slide">
+            <img src="{% static 'assets/img/logo/logo6.png' %}" alt="Kaiser Permanente" loading="lazy" width="150" height="100" />
+          </div>
+          <div class="insurance-slide">
+            <img src="{% static 'assets/img/logo/logo7.webp' %}" alt="Anthem Insurance" loading="lazy" width="150" height="100" />
+          </div>
+          <div class="insurance-slide">
+            <img src="{% static 'assets/img/logo/logo8.webp' %}" alt="Molina Healthcare" loading="lazy" width="150" height="100" />
+          </div>
+          <div class="insurance-slide">
+            <img src="{% static 'assets/img/logo/logo9.webp' %}" alt="Medicare Insurance" loading="lazy" width="150" height="100" />
+          </div>
+          <div class="insurance-slide">
+            <img src="{% static 'assets/img/logo/logo1.webp' %}" alt="Medicaid Insurance" loading="lazy" width="150" height="100" />
+          </div>
+          <div class="insurance-slide">
+            <img src="{% static 'assets/img/logo/logo11.png' %}" alt="Tricare Insurance" loading="lazy" width="150" height="100" />
+          </div>
+          <div class="insurance-slide">
+            <img src="{% static 'assets/img/logo/logo12.webp' %}" alt="Optum Insurance" loading="lazy" width="150" height="100" />
+          </div>
+          <div class="insurance-slide">
+            <img src="{% static 'assets/img/logo/logo13.png' %}" alt="WellCare Insurance" loading="lazy" width="150" height="100" />
+          </div>
+          <div class="insurance-slide">
+            <img src="{% static 'assets/img/logo/logo14.png' %}" alt="Centene Insurance" loading="lazy" width="150" height="100" />
+          </div>
+        </div>
+        
+        <div class="insurance-controls">
+          <button class="insurance-btn insurance-prev" onclick="insuranceSlider.prev()">
+            <i class="bi bi-chevron-left"></i>
+          </button>
+          <button class="insurance-btn insurance-next" onclick="insuranceSlider.next()">
+            <i class="bi bi-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
   </section>
-  <!-- /Insurance Section -->
+  <!-- /Insurance Slider Section -->
    <br>
 
   <!-- Featured Services Section -->
@@ -421,131 +455,12 @@ Our dedicated team provides mental health support and physical recovery plans de
     <div class="container section-title" data-aos="fade-up">
       <h2>Featured Services</h2>
       <p>
-        Necessitatibus eius consequatur ex aliquid fuga eum quidem sint
-        consectetur velit
+        Delivering personalized care and specialized treatment plans that address each patient’s unique mental health needs with compassion and precision.
       </p>
     </div>
     <!-- End Section Title -->
 
-    <div class="container" data-aos="fade-up" data-aos-delay="100">
-      <div class="row gy-4">
-        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-          <div class="service-card">
-            <div class="service-icon">
-              <i class="fas fa-heartbeat"></i>
-            </div>
-            <div class="service-content">
-              <h3>Medication & Evaluation</h3>
-              <p>
-                Your path to healing starts with understanding. Our psychiatric experts conduct in-depth evaluations and create medication plans tailored to your unique mental health needs—because real care begins with clarity.
-              </p>
-              <ul class="service-features">
-                <li>
-                  <i class="fas fa-check-circle"></i>Advanced Heart Surgery
-                </li>
-                <li><i class="fas fa-check-circle"></i>24/7 Emergency Care</li>
-                <li>
-                  <i class="fas fa-check-circle"></i>Preventive Screenings
-                </li>
-              </ul>
-              <a href="services.html" class="service-btn">
-                Learn More
-                <i class="fas fa-arrow-right"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- End Service Card -->
-
-        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
-          <div class="service-card">
-            <div class="service-icon">
-              <i class="fas fa-brain"></i>
-            </div>
-            <div class="service-content">
-              <h3>Talk Therapy</h3>
-              <p>
-                Sometimes, you just need someone to truly listen. Our licensed therapists offer a safe space to express yourself, process emotions, and rediscover strength—one conversation at a time.
-              </p>
-              <ul class="service-features">
-                <li>
-                  <i class="fas fa-check-circle"></i>Brain Imaging &amp;
-                  Diagnostics
-                </li>
-                <li>
-                  <i class="fas fa-check-circle"></i>Stroke Treatment Center
-                </li>
-                <li>
-                  <i class="fas fa-check-circle"></i>Neurological Rehabilitation
-                </li>
-              </ul>
-              <a href="services.html" class="service-btn">
-                Learn More
-                <i class="fas fa-arrow-right"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- End Service Card -->
-
-        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
-          <div class="service-card">
-            <div class="service-icon">
-              <i class="fas fa-bone"></i>
-            </div>
-            <div class="service-content">
-              <h3>Psychotherapy</h3>
-              <p>
-                For those ready to go deeper, psychotherapy uncovers the root of emotional pain and unhelpful patterns—empowering long-term change through evidence-based, personalized treatment.
-              </p>
-              <ul class="service-features">
-                <li>
-                  <i class="fas fa-check-circle"></i>Joint Replacement Surgery
-                </li>
-                <li><i class="fas fa-check-circle"></i>Sports Medicine</li>
-                <li>
-                  <i class="fas fa-check-circle"></i>Minimally Invasive
-                  Procedures
-                </li>
-              </ul>
-              <a href="services.html" class="service-btn">
-                Learn More
-                <i class="fas fa-arrow-right"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- End Service Card -->
-
-        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="500">
-          <div class="service-card">
-            <div class="service-icon">
-              <i class="fas fa-ambulance"></i>
-            </div>
-            <div class="service-content">
-              <h3>Counseling</h3>
-              <p>
-                Life gets heavy—we help you carry it better. Whether you’re facing stress, relationships, or life transitions, our counseling sessions provide the tools and support to move forward with purpose.
-              </p>
-              <ul class="service-features">
-                <li>
-                  <i class="fas fa-check-circle"></i>24/7 Emergency Department
-                </li>
-                <li>
-                  <i class="fas fa-check-circle"></i>Level 1 Trauma Center
-                </li>
-                <li><i class="fas fa-check-circle"></i>Critical Care Units</li>
-              </ul>
-              <a href="services.html" class="service-btn">
-                Learn More
-                <i class="fas fa-arrow-right"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- End Service Card -->
-      </div>
-    </div>
+    {% include "service_section.html" %}
   </section>
   <!-- /Featured Services Section -->
 
@@ -559,17 +474,15 @@ Our dedicated team provides mental health support and physical recovery plans de
       <div class="row justify-content-center">
         <div class="col-lg-8 text-center">
           <h2 data-aos="fade-up" data-aos-delay="200">
-            Your Health is Our Priority
+            Your Well-Being Comes First
           </h2>
           <p data-aos="fade-up" data-aos-delay="250">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris.
+            We’re committed to your care with personalized support and expert treatment tailored to your unique needs. Our goal is to help you heal, grow, and thrive—every step of the way, with compassion and dedication.
           </p>
 
           <div class="cta-buttons" data-aos="fade-up" data-aos-delay="300">
-            <a href="appointment.html" class="btn-primary">Book Appointment</a>
-            <a href="doctors.html" class="btn-secondary">Find a Doctor</a>
+            <a href="{% url 'create_patient' %}" class="btn-primary">Book Appointment</a>
+            <a href="{% url 'doctor' %}" class="btn-secondary">Find a Doctor</a>
           </div>
         </div>
       </div>
@@ -582,10 +495,9 @@ Our dedicated team provides mental health support and physical recovery plans de
             </div>
             <h5>24/7 Emergency Care</h5>
             <p>
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo.
+              Get immediate mental health support anytime, ensuring safety, stability, and expert attention when you need it most.
             </p>
-            <a href="#" class="feature-link">
+            <a href="{% url 'service' %}" class="feature-link">
               <span>Learn More</span>
               <i class="bi bi-arrow-right"></i>
             </a>
@@ -599,10 +511,9 @@ Our dedicated team provides mental health support and physical recovery plans de
             </div>
             <h5>Easy Online Booking</h5>
             <p>
-              Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur.
+              Schedule appointments in seconds with our user-friendly platform—convenient, fast, and available on any device.
             </p>
-            <a href="#" class="feature-link">
+            <a href="{% url 'create_patient' %}" class="feature-link">
               <span>Book Now</span>
               <i class="bi bi-arrow-right"></i>
             </a>
@@ -616,10 +527,9 @@ Our dedicated team provides mental health support and physical recovery plans de
             </div>
             <h5>Expert Medical Team</h5>
             <p>
-              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-              officia deserunt mollit anim.
+              Our licensed professionals deliver compassionate, evidence-based care focused on your mental health and recovery.
             </p>
-            <a href="#" class="feature-link">
+            <a href="{% url 'doctor' %}" class="feature-link">
               <span>Meet Our Doctors</span>
               <i class="bi bi-arrow-right"></i>
             </a>
@@ -638,9 +548,7 @@ Our dedicated team provides mental health support and physical recovery plans de
             Contact Us
           </h1>
           <p data-aos="fade-up" data-aos-delay="250">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris.
+            We’re here to help—reach out today to schedule an appointment or ask any questions you may have.
           </p>
         </div>
       </div>

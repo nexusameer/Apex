@@ -1,6 +1,199 @@
 {% extends "base.html" %}
 {% load static %}
+
 {% block content %}
+<style>
+/* Contact Information Styling */
+.contact-info.section {
+  padding: 80px 0;
+  background-color: #f8f9fa;
+}
+
+.contact-info-header h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2c3031;
+  margin-bottom: 1rem;
+}
+
+.contact-info-header .lead {
+  font-size: 1.2rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.info-card {
+  background: #fff;
+  padding: 2.5rem 2rem;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.info-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.icon-container {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #049ebb, #0cc0df);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  position: relative;
+}
+
+.icon-container::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  background: linear-gradient(135deg, #049ebb, #0cc0df);
+  border-radius: 50%;
+  opacity: 0.2;
+  z-index: -1;
+}
+
+.icon-container i {
+  font-size: 2rem;
+  color: #fff;
+}
+
+.card-content h4 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #2c3031;
+  margin-bottom: 1rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.card-content p {
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.card-content a {
+  color: #049ebb;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.card-content a:hover {
+  color: #037a94;
+  text-decoration: underline;
+}
+
+.social-links-panel {
+  background: #fff;
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.social-links-panel h4 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2c3031;
+  font-family: 'Poppins', sans-serif;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.social-link {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #049ebb, #0cc0df);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 1.2rem;
+}
+
+.social-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(4, 158, 187, 0.3);
+  background: linear-gradient(135deg, #037a94, #049ebb);
+  color: #fff;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .contact-info.section {
+    padding: 60px 0;
+  }
+  
+  .contact-info-header h2 {
+    font-size: 2rem;
+  }
+  
+  .info-card {
+    padding: 2rem 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .icon-container {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .icon-container i {
+    font-size: 1.8rem;
+  }
+  
+  .card-content h4 {
+    font-size: 1.2rem;
+  }
+  
+  .social-links-panel {
+    padding: 2rem 1.5rem;
+  }
+  
+  .social-link {
+    width: 45px;
+    height: 45px;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-info-header .lead {
+    font-size: 1.1rem;
+  }
+  
+  .info-card {
+    padding: 1.5rem 1rem;
+  }
+  
+  .social-icons {
+    gap: 0.8rem;
+  }
+}
+</style>
 
 <main class="main">
 
@@ -16,13 +209,81 @@
       </nav>
     </div>
 
-    <div class="title-wrapper">
+    {% comment %} <div class="title-wrapper">
       <h1>Contact</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
-    </div>
+      <p>We’re here to help—reach out today to schedule an appointment or ask any questions you may have.</p>
+    </div> {% endcomment %}
   </div>
   <!-- End Page Title -->
 
+  <!-- Contact Information Section -->
+  <section id="contact-info" class="contact-info section light-background">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="contact-wrapper">
+            <div class="contact-info-header text-center mb-5">
+              <h2>Contact Information</h2>
+              <p class="lead">We're here to help—reach out today to schedule an appointment or ask any questions you may have.</p>
+            </div>
+
+            <div class="row gy-4 mb-5">
+              <div class="col-lg-3 col-md-6">
+                <div class="info-card h-100">
+                  <div class="icon-container">
+                    <i class="bi bi-telephone-fill"></i>
+                  </div>
+                  <div class="card-content">
+                    <h4>Call Us</h4>
+                    <p><a href="tel:+15551234567">+1 (866) 5282004</a></p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6">
+                <div class="info-card h-100">
+                  <div class="icon-container">
+                    <i class="bi bi-envelope-open"></i>
+                  </div>
+                  <div class="card-content">
+                    <h4>Email Us</h4>
+                    <p><a href="mailto:info@example.com">info@mindreliefclinic.com</a></p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6">
+                <div class="info-card h-100">
+                  <div class="icon-container">
+                    <i class="bi bi-clock-history"></i>
+                  </div>
+                  <div class="card-content">
+                    <h4>Working Hours</h4>
+                    <p><a href="mailto:info@example.com">Monday-Friday</a></p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-lg-3 col-md-6">
+                <div class="info-card h-100">
+                  <div class="icon-container">
+                    <i class="bi bi-envelope-open"></i>
+                  </div>
+                  <div class="card-content">
+                    <h4>Support</h4>
+                    <p><a href="mailto:info@example.com">contact@mindreliefclinic.com</a></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Contact Information Section -->
+
+  <!-- Contact Map Section -->
   <section id="contact" class="contact section">
     
     <div class="container">
