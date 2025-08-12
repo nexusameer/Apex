@@ -5,37 +5,29 @@
   <section id="hero" class="hero section dark-background">
     <div class="container-fluid p-0">
       <div class="hero-wrapper">
-        <d            <div class="department-image">
-              <img
-                src="{% static 'assets/img/service/service3.webp' %}"
-                alt="Dermatology Department"
-                class="img-fluid"
-                loading="lazy"
-                width="400"
-                height="300"
-              />"hero-image">
-          <!-- Ultra-optimized responsive hero image for mobile performance -->
+        <div class="hero-image">
+          <!-- Hero background image -->
           <picture>
             <source 
               media="(max-width: 480px)" 
               srcset="{% static 'assets/img/hero_section/mind_resized_600x338.webp' %}"
               width="600" 
-              height="450"
+              height="338"
             >
             <source 
               media="(max-width: 768px)" 
               srcset="{% static 'assets/img/hero_section/mind_resized_800x450.webp' %}"
               width="800" 
-              height="600"
+              height="450"
             >
             <img
               src="{% static 'assets/img/hero_section/mind_resized_1000x563.webp' %}"
-              alt="Advanced Healthcare"
+              alt="Mind Relief Clinic - Professional Mental Health Care"
               class="img-fluid"
               loading="eager"
               fetchpriority="high"
               width="1000"
-              height="700"
+              height="563"
             />
           </picture>
         </div>
