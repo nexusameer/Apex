@@ -1,0 +1,51 @@
+name: Deploy to Production
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Deploy to server
+      uses: appleboy/ssh-action@v1.0.0
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.SSH_KEY }}
+        port: ${{ secrets.PORT }}
+        script: |
+          cd /root
+          
+          # Download latest deploy script if it doesn't exist or update it
+          if [ ! -f deploy.sh ] || [ "${{ github.sha }}" != "$(cat deploy_version.txt 2>/dev/null)" ]; then
+            echo "Updating deploy script..."
+            curl -sSL https://raw.githubusercontent.com/nexusameer/Apex/main/deploy.sh -o deploy.sh
+            chmod +x deploy.sh
+            echo "${{ github.sha }}" > deploy_version.txt
+          fi
+          
+          # Run deployment
+          ./deploy.sh
+          
+          # Optional: Run cleanup after successful deployment
+          if [ -f docker-cleanup.sh ]; then
+            echo "Running post-deployment cleanup..."
+            ./docker-cleanup.sh 3  # Apex project cleanup
+          fi
+          
+          # Verify deployment
+          echo "Verifying deployment..."
+          sleep 10
+          if curl -f http://localhost:8001 >/dev/null 2>&1; then
+            echo "✅ Deployment verification successful"
+          else
+            echo "❌ Deployment verification failed"
+            exit 1
+          fi
