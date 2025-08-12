@@ -177,4 +177,139 @@
     });
   });
 
+  /**
+   * Insurance Slider Functionality
+   */
+  class InsuranceSlider {
+    constructor() {
+      this.slider = document.getElementById('insuranceSlider');
+      this.slides = this.slider?.querySelectorAll('.insurance-slide');
+      this.currentIndex = 0;
+      this.slideWidth = 230; // 200px width + 30px margin
+      this.autoplayDelay = 2000; // 2 seconds per slide
+      this.autoplayTimer = null;
+      this.totalSlides = 0;
+      
+      if (this.slider && this.slides.length > 0) {
+        this.init();
+      }
+    }
+
+    init() {
+      this.totalSlides = this.slides.length;
+      
+      // Clone slides for infinite effect
+      this.cloneSlides();
+      
+      // Start autoplay
+      this.startAutoplay();
+      
+      // Pause on hover
+      this.slider.addEventListener('mouseenter', () => this.pauseAutoplay());
+      this.slider.addEventListener('mouseleave', () => this.startAutoplay());
+      
+      // Touch events for mobile
+      this.addTouchEvents();
+    }
+
+    cloneSlides() {
+      const slidesArray = Array.from(this.slides);
+      
+      // Clone slides and append to the end
+      slidesArray.forEach(slide => {
+        const clone = slide.cloneNode(true);
+        this.slider.appendChild(clone);
+      });
+    }
+
+    next() {
+      this.currentIndex++;
+      this.updateSliderPosition();
+      
+      // Reset to beginning when reaching the end of original slides
+      if (this.currentIndex >= this.totalSlides) {
+        setTimeout(() => {
+          this.slider.style.transition = 'none';
+          this.currentIndex = 0;
+          this.updateSliderPosition();
+          setTimeout(() => {
+            this.slider.style.transition = 'transform 0.5s ease-in-out';
+          }, 50);
+        }, 500);
+      }
+    }
+
+    prev() {
+      if (this.currentIndex <= 0) {
+        this.slider.style.transition = 'none';
+        this.currentIndex = this.totalSlides - 1;
+        this.updateSliderPosition();
+        setTimeout(() => {
+          this.slider.style.transition = 'transform 0.5s ease-in-out';
+        }, 50);
+      } else {
+        this.currentIndex--;
+        this.updateSliderPosition();
+      }
+    }
+
+    updateSliderPosition() {
+      const translateX = -this.currentIndex * this.slideWidth;
+      this.slider.style.transform = `translateX(${translateX}px)`;
+    }
+
+    startAutoplay() {
+      this.pauseAutoplay();
+      this.autoplayTimer = setInterval(() => {
+        this.next();
+      }, this.autoplayDelay);
+    }
+
+    pauseAutoplay() {
+      if (this.autoplayTimer) {
+        clearInterval(this.autoplayTimer);
+        this.autoplayTimer = null;
+      }
+    }
+
+    addTouchEvents() {
+      let startX = 0;
+      let startY = 0;
+      let endX = 0;
+      let endY = 0;
+
+      this.slider.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+        this.pauseAutoplay();
+      });
+
+      this.slider.addEventListener('touchmove', (e) => {
+        endX = e.touches[0].clientX;
+        endY = e.touches[0].clientY;
+      });
+
+      this.slider.addEventListener('touchend', (e) => {
+        const diffX = startX - endX;
+        const diffY = startY - endY;
+        
+        // Only trigger swipe if horizontal movement is greater than vertical
+        if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+          if (diffX > 0) {
+            this.next();
+          } else {
+            this.prev();
+          }
+        }
+        
+        this.startAutoplay();
+      });
+    }
+  }
+
+  // Initialize insurance slider when DOM is loaded (disabled for CSS animation)
+  // document.addEventListener('DOMContentLoaded', function() {
+  //   window.insuranceSlider = new InsuranceSlider();
+  // });
+
 })();

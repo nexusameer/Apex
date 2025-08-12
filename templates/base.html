@@ -18,9 +18,9 @@
     <link rel="preload" href="{% static 'assets/js/main.js' %}" as="script">
     
     <!-- Preload LCP image for fastest loading - ultra-optimized responsive -->
-    <link rel="preload" href="{% static 'assets/img/health/showcase-1-ultra-mobile.webp' %}" as="image" fetchpriority="high" media="(max-width: 480px)">
-    <link rel="preload" href="{% static 'assets/img/health/showcase-1-mobile.webp' %}" as="image" fetchpriority="high" media="(min-width: 481px) and (max-width: 768px)">
-    <link rel="preload" href="{% static 'assets/img/health/showcase-1-lcp.webp' %}" as="image" fetchpriority="high" media="(min-width: 769px)">
+    <link rel="preload" href="{% static 'assets/img/hero_section/mind_resized_600x338.webp' %}" as="image" fetchpriority="high" media="(max-width: 480px)">
+    <link rel="preload" href="{% static 'assets/img/hero_section/mind_resized_800x450.webp' %}" as="image" fetchpriority="high" media="(min-width: 481px) and (max-width: 768px)">
+    <link rel="preload" href="{% static 'assets/img/hero_section/mind_resized_1000x563.webp' %}" as="image" fetchpriority="high" media="(min-width: 769px)">
 
     <!-- Favicons with optimized loading -->
     <link href="{% static 'assets/img/favicon1.png' %}" rel="icon" />
@@ -232,11 +232,11 @@
         // Preload critical LCP image based on device size
         var img = new Image();
         if (window.innerWidth <= 480) {
-          img.src = '{% static "assets/img/health/showcase-1-ultra-mobile.webp" %}';
+          img.src = '{% static "assets/img/hero_section/mind_resized_600x338.webp" %}';
         } else if (window.innerWidth <= 768) {
-          img.src = '{% static "assets/img/health/showcase-1-mobile.webp" %}';
+          img.src = '{% static "assets/img/hero_section/mind_resized_800x450.webp" %}';
         } else {
-          img.src = '{% static "assets/img/health/showcase-1-lcp.webp" %}';
+          img.src = '{% static "assets/img/hero_section/mind_resized_1000x563.webp" %}';
         }
           
         // Register service worker for caching
@@ -282,7 +282,7 @@
       <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
         <a href="{% url 'index' %}" class="logo d-flex align-items-center me-auto me-xl-0">
           <!-- Optimized logo with proper dimensions -->
-          <img src="{% static 'assets/img/logo.png' %}" alt="Mind Relief Clinic Logo" width="40" height="40" loading="eager" />
+          <img src="{% static 'assets/img/logo.webp' %}" alt="Mind Relief Clinic Logo" width="40" height="40" loading="eager" />
           <h1 class="sitename" style="line-height: 0.7; font-family: 'Poppins', sans-serif; color: #0cc0df;">
             Mind Relief<br />
             <span style="font-size: 0.6em; font-family: 'Alice'; color: #6cabda; font-style: italic;">Clinic</span>
