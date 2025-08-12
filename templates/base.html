@@ -122,6 +122,12 @@
         .btn-getstarted{padding:6px 12px;font-size:13px}
         .mobile-nav-toggle{display:block}
         .navmenu{display:none}
+        .mobile-nav-active .navmenu{display:block!important;position:fixed;top:0;left:0;width:100%;height:100vh;background:rgba(2,20,24,0.95);backdrop-filter:blur(10px);z-index:9999;padding:80px 0 20px;overflow-y:auto}
+        .mobile-nav-active .navmenu ul{display:block!important;flex-direction:column;text-align:center;width:100%;gap:0!important}
+        .mobile-nav-active .navmenu li{width:100%;border-bottom:1px solid rgba(255,255,255,0.1)}
+        .mobile-nav-active .navmenu a{display:block;color:#fff!important;padding:15px 20px;font-size:18px;font-weight:500;text-decoration:none;transition:all 0.3s ease}
+        .mobile-nav-active .navmenu a:hover,.mobile-nav-active .navmenu a.active{background:rgba(4,158,187,0.2);color:#049ebb!important}
+        .mobile-nav-active .mobile-nav-toggle{position:fixed;top:20px;right:20px;z-index:10000;color:#fff;font-size:32px}
         .hero-content{padding:60px 0 30px}
         .hero-content h1{font-size:2rem}
         .hero-content p{font-size:1rem}
@@ -294,9 +300,9 @@
               <a href="{% url 'contact' %}" class="{% if request.resolver_match.url_name == 'contact' %}active{% endif %}">Contact</a>
             </li>
           </ul>
-          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
 
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         <a class="btn-getstarted" href="{% url 'create_patient' %}">Book Appointment</a>
       </div>
     </header>
