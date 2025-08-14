@@ -546,7 +546,7 @@ h6 {
   border-radius: 50%;
   border: 1px solid color-mix(in srgb, var(--default-color), transparent 50%);
   font-size: 16px;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  color: black;
   margin-right: 10px;
   transition: 0.3s;
 }
@@ -590,7 +590,7 @@ h6 {
 }
 
 .footer .footer-links ul a {
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  color: black;
   display: inline-block;
   line-height: 1;
 }
@@ -716,7 +716,7 @@ h6 {
 
 .page-title .breadcrumbs .breadcrumb .breadcrumb-item {
   font-size: 0.9rem;
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  color: black;
 }
 
 .page-title .breadcrumbs .breadcrumb .breadcrumb-item.active {
@@ -757,7 +757,7 @@ h6 {
 
 .page-title .title-wrapper p {
   font-size: 1.1rem;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  color: black;
   margin: 0;
   line-height: 1.6;
 }
@@ -830,6 +830,7 @@ section,
 
 .section-title p {
   margin-bottom: 0;
+  color: black;
 }
 
 /*--------------------------------------------------------------
@@ -971,7 +972,7 @@ section,
 }
 
 .hero .hero-content .content-box .info-badges .badge-item .badge-content span {
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  color: rgb(255, 255, 255);
   font-size: 0.9rem;
 }
 
@@ -1020,7 +1021,7 @@ section,
 
 .hero .features-wrapper .feature-item .feature-text p {
   font-size: 0.95rem;
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  color: rgb(255, 255, 255);
   margin-bottom: 0;
 }
 
@@ -1371,7 +1372,7 @@ section,
 }
 
 .featured-departments p {
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  color: black;
   font-size: 15px;
   line-height: 1.6;
   margin-bottom: 25px;
@@ -1506,7 +1507,7 @@ section,
 }
 
 .featured-services .service-content p {
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  color: black;
   line-height: 1.6;
   margin-bottom: 20px;
   font-size: 15px;
@@ -1523,7 +1524,7 @@ section,
   align-items: center;
   margin-bottom: 10px;
   font-size: 14px;
-  color: var(--default-color);
+  color: black;
 }
 
 .featured-services .service-features li:last-child {
@@ -1737,7 +1738,7 @@ section,
 }
 
 .find-a-doctor .doctor-card .doctor-info .experience {
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  color: black;
   font-size: 0.9rem;
   margin-bottom: 0.75rem;
 }
@@ -1755,7 +1756,7 @@ section,
 }
 
 .find-a-doctor .doctor-card .doctor-info .rating .rating-text {
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  color: black;
   font-size: 0.875rem;
   margin-left: 0.5rem;
 }
@@ -1869,7 +1870,7 @@ section,
 
 .call-to-action .content p {
   font-size: 1.1rem;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  color: black;
   margin-bottom: 2rem;
   line-height: 1.6;
 }
@@ -1975,7 +1976,7 @@ section,
 }
 
 .call-to-action .feature-card p {
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  color: black;
   margin-bottom: 1.5rem;
   line-height: 1.6;
 }
@@ -2253,13 +2254,13 @@ section,
 }
 
 .emergency-info .emergency-contacts .contact-card .card-content .description {
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  color: black;
   font-size: 0.9rem;
   margin-bottom: 10px;
 }
 
 .emergency-info .emergency-contacts .contact-card .card-content .hours {
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  color: black;
   font-size: 0.9rem;
   font-weight: 500;
   margin-bottom: 0;
@@ -2394,7 +2395,7 @@ section,
   font-size: 1.1rem;
   line-height: 1.8;
   margin-bottom: 1.5rem;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  color: black;
 }
 
 .about .stats-container {
@@ -2520,7 +2521,7 @@ section,
 
 .about .certifications-section .section-header p {
   font-size: 1.1rem;
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  color: black;
 }
 
 .about .certifications-section .certifications-grid {
@@ -2712,7 +2713,7 @@ section,
 
 .departments .department-image-wrapper .department-stats .stat-label {
   font-size: 10px;
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  color: black;
   font-weight: 500;
   text-transform: uppercase;
 }
@@ -2720,7 +2721,7 @@ section,
 .departments .department-content p {
   font-size: 13px;
   line-height: 1.6;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  color: black;
   margin-bottom: 15px;
 }
 
@@ -2891,7 +2892,7 @@ section,
 .departments .featured-content p {
   font-size: 14px;
   line-height: 1.7;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  color: black;
   margin-bottom: 20px;
 }
 
@@ -3011,7 +3012,7 @@ section,
 
 .department-details .intro .lead {
   font-size: 1.2rem;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  color: black;
   max-width: 800px;
   margin: 0 auto;
 }
@@ -3518,7 +3519,7 @@ section,
 }
 
 .services .service-details p {
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  color: black;
   margin-bottom: 20px;
   line-height: 1.7;
 }
@@ -3547,7 +3548,7 @@ section,
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  color: black;
   text-decoration: none;
   font-weight: 600;
   font-size: 14px;
@@ -3622,7 +3623,7 @@ section,
 }
 
 .services .services-cta .cta-content p {
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  color: black;
   margin-bottom: 30px;
   line-height: 1.7;
   max-width: 500px;
@@ -3882,7 +3883,7 @@ section,
 }
 
 .service-details-2 .service-card p {
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  color: black;
   margin-bottom: 1.5rem;
 }
 
@@ -3957,7 +3958,7 @@ section,
 }
 
 .service-details-2 .booking-section .availability-info .info-item div span {
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  color: black;
   font-size: 0.9rem;
 }
 
@@ -3975,7 +3976,7 @@ section,
 }
 
 .service-details-2 .appointment-card p {
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  color: black;
   margin-bottom: 2rem;
 }
 
@@ -4142,7 +4143,7 @@ section,
 }
 
 .doctors .doctor-card .doctor-content .doctor-bio {
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  color: black;
   font-size: 14px;
   line-height: 1.6;
   margin-bottom: 20px;
@@ -4260,7 +4261,7 @@ section,
 }
 
 .appointmnet .info-items .info-item p {
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  color: black;
   font-size: 0.9rem;
   line-height: 1.5;
 }
@@ -4319,7 +4320,7 @@ section,
 }
 
 .appointmnet .appointment-form .form-select {
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  color: black;
 }
 
 .appointmnet .appointment-form .form-select:focus {
@@ -4396,7 +4397,7 @@ section,
 }
 
 .appointmnet .process-steps .step-item p {
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  color: black;
   font-size: 0.9rem;
   line-height: 1.6;
   margin-bottom: 0;
@@ -4615,7 +4616,7 @@ section,
 
 .testimonials .testimonial-item .testimonial-footer .testimonial-author div span {
   font-size: 14px;
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  color: black;
 }
 
 .testimonials .testimonial-item .testimonial-footer .quote-icon {
@@ -5331,7 +5332,7 @@ section,
 }
 
 .terms-of-service .tos-header p {
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  color: black;
   font-size: 1.1rem;
   max-width: 700px;
   margin: 0 auto;
@@ -5353,7 +5354,7 @@ section,
 }
 
 .terms-of-service .tos-content .content-section p {
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  color: black;
   line-height: 1.7;
   margin-bottom: 20px;
 }
@@ -5393,7 +5394,7 @@ section,
   position: relative;
   padding-left: 25px;
   margin-bottom: 12px;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  color: black;
 }
 
 .terms-of-service .tos-content .content-section .list-items li:last-child {
@@ -5466,7 +5467,7 @@ section,
 
 .terms-of-service .tos-content .content-section .prohibited-list .prohibited-item span {
   font-size: 0.95rem;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  color: black;
 }
 
 .terms-of-service .tos-content .content-section .disclaimer-box {
@@ -5491,7 +5492,7 @@ section,
   position: relative;
   padding-left: 25px;
   margin-bottom: 12px;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  color: black;
   font-size: 0.95rem;
 }
 
@@ -5573,7 +5574,7 @@ section,
 }
 
 .terms-of-service .tos-contact .contact-box .contact-content p {
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  color: black;
   margin-bottom: 15px;
 }
 
@@ -5640,7 +5641,7 @@ section,
 
 .privacy .privacy-header .header-content .intro-text {
   font-size: 1.2rem;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  color: black;
   line-height: 1.6;
 }
 
@@ -5833,7 +5834,7 @@ section,
 
 .error-404 .error-text {
   font-size: 1.1rem;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  color: black;
   max-width: 600px;
   margin: 0 auto;
 }
@@ -5957,7 +5958,7 @@ section,
 
 .insurance-subtitle {
   font-size: 1.1rem;
-  color: var(--default-color);
+  color: black;
   opacity: 0.8;
   max-width: 600px;
   margin: 0 auto;
