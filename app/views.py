@@ -38,6 +38,19 @@ class ErrorView(TemplateView):
 class AppointmentView(TemplateView):
     template_name = 'appointment.html'
 
+class ContactDetailView(TemplateView):
+    template_name = 'contact_detail.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        try:
+            doctor = Doctor.objects.get(id=kwargs.get('contact_id'))
+            context['doctor'] = doctor
+        except Doctor.DoesNotExist:
+            # Handle case where doctor doesn't exist
+            context['doctor'] = None
+        return context
+
 
 def create_patient(request):
     if request.method == 'POST':

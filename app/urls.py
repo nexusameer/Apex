@@ -1,4 +1,5 @@
-from django.urls import path
+from django.urls    path('appointment', AppointmentView.as_view(), name='appointment'),
+    path('contact/<int:contact_id>/', ContactDetailView.as_view(), name='contact_detail'),import path
 from .views import *
 from . import views
 

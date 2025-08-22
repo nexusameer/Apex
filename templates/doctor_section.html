@@ -14,26 +14,37 @@
       {% for doctor in doctors %}
       <div class="col-lg-4 col-md-6 mb-4">
         <div class="doctor-card">
-          <div class="doctor-image">
-            {% if doctor.image %}
-            <img src="{{ doctor.image.url }}" alt="{{ doctor.name }}" class="img-fluid" />
-            {% else %}
-            <img src="{% static 'assets/img/doctor/default-doctor.jpg' %}" alt="{{ doctor.name }}" class="img-fluid" />
-            {% endif %}
-          </div>
-          <div class="doctor-info">
-            <h5>{{ doctor.name }}</h5>
-            <p class="specialty">{{ doctor.designation }}</p>
-            <p class="experience">{{ doctor.experience }}+ years experience</p>
-            <div class="rating">
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-half"></i>
-              <span class="rating-text">({{ doctor.rating }})</span>
+          <a href="{% url 'contact_detail' contact_id=doctor.id %}" class="text-decoration-none">
+            <div class="doctor-image">
+              {% if doctor.image %}
+              <img src="{{ doctor.image.url }}" alt="{{ doctor.name }}" class="img-fluid" />
+              {% else %}
+              <img src="{% static 'assets/img/doctor/default-doctor.jpg' %}" alt="{{ doctor.name }}" class="img-fluid" />
+              {% endif %}
             </div>
-          </div>
+            <div class="doctor-info">
+              <h5>{{ doctor.name }}</h5>
+              <p class="specialty">{{ doctor.designation }}</p>
+              {% if doctor.description %}
+              <p class="description">{{ doctor.description|truncatewords:20 }}</p>
+              {% endif %}
+              <div class="rating">
+                {% if doctor.rating > 0 %}
+                  {% for i in "12345" %}
+                    {% if forloop.counter <= doctor.rating %}
+                      <i class="bi bi-star-fill"></i>
+                    {% else %}
+                      <i class="bi bi-star"></i>
+                    {% endif %}
+                  {% endfor %}
+                  <span class="rating-text">({{ doctor.rating }})</span>
+                {% endif %}
+              </div>
+              <div class="view-profile mt-2">
+                <span class="btn btn-outline-primary btn-sm">View Profile</span>
+              </div>
+            </div>
+          </a>
         </div>
       </div>
       {% empty %}

@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title">
+      <div class="breadcrumbs">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'index' %}"><i class="bi bi-house"></i> Home</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'doctors' %}">Doctors</a></li>
+            <li class="breadcrumb-item active current">{{ doctor.name }}</li>
+          </ol>
+        </nav>
+      </div>
+
+      <div class="title-wrapper">
+        <h1>{{ doctor.name }}</h1>
+        <p>{{ doctor.designation }}</p>
+      </div>
+    </div><!-- End Page Title -->
+
+    <!-- Contact Detail Section -->
+    <section id="contact-detail" class="contact-detail section">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        
+        <div class="row gy-4">
+          <!-- Left Side - Doctor Information -->
+          <div class="col-lg-8">
+            <div class="contact-info-card">
+              <!-- Doctor Header -->
+              <div class="contact-header">
+                <h2>{{ doctor.name }}</h2>
+                <p class="contact-designation">{{ doctor.designation }}</p>
+              </div>
+
+              <!-- Doctor Description -->
+              <div class="contact-description">
+                <h3>About Dr. {{ doctor.name }}</h3>
+                {% if doctor.description %}
+                  <p>{{ doctor.description|linebreaks }}</p>
+                {% else %}
+                  <p>{{ doctor.name }} is a dedicated healthcare professional committed to providing excellent care and service.</p>
+                {% endif %}
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="contact-actions">
+                <a href="{% url 'appointment' %}" class="btn btn-primary">
+                  <i class="bi bi-calendar-plus"></i> Book Appointment
+                </a>
+                <a href="{% url 'contact' %}" class="btn btn-outline-primary">
+                  <i class="bi bi-envelope"></i> Contact Us
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Side - Doctor Picture -->
+          <div class="col-lg-4">
+            <div class="contact-image-card" data-aos="fade-left" data-aos-delay="200">
+              <div class="contact-image">
+                {% if doctor.image %}
+                  <img src="{{ doctor.image.url }}" alt="{{ doctor.name }}" class="img-fluid">
+                {% else %}
+                  <img src="{% static 'assets/img/person/default-person.jpg' %}" alt="{{ doctor.name }}" class="img-fluid">
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Back to Doctors -->
+        <div class="row mt-5">
+          <div class="col-12">
+            <div class="text-center">
+              <a href="{% url 'doctors' %}" class="btn btn-outline-secondary">
+                <i class="bi bi-arrow-left"></i> Back to Doctors
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Contact Detail Section -->
+
+  </main>
+
+{% endblock content %}
