@@ -68,6 +68,26 @@ class PatientProfile(models.Model):
         return f"{self.user.first_name} {self.user.last_name}"
 
 
+class Doctor(models.Model):
+    name = models.CharField(max_length=255)
+    image = CloudinaryField('image', blank=True, null=True)
+    designation = models.CharField(max_length=255)   # e.g., "Board-Certified Psychiatrist"
+    experience = models.PositiveIntegerField(default=0)  # store number of years
+    stars = models.PositiveIntegerField(default=0)  # store number of stars (1–5)
+    rating = models.DecimalField(max_digits=2, decimal_places=1, default=0.0)  # e.g., 4.7
+
+    def image_tag(self):
+        if self.image:
+            return format_html(
+                '<img src="{}" width="150" height="150" style="border-radius:8px;" />', 
+                self.image.url
+            )
+        return "No image"
+
+    def __str__(self):
+        return self.name
+
+
 
 
 
