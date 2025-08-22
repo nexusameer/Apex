@@ -5,6 +5,11 @@ from .models import *
 
 class IndexView(TemplateView):
     template_name = 'index.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['doctors'] = Doctor.objects.all()[:6]  # Show 6 doctors on homepage
+        return context
 
 
 class ContactView(TemplateView):
@@ -15,6 +20,11 @@ class AboutView(TemplateView):
 
 class DoctorView(TemplateView):
     template_name = 'doctors.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['doctors'] = Doctor.objects.all()  # Show all doctors on doctor page
+        return context
 
 class TermsView(TemplateView):
     template_name = 'Terms.html'
