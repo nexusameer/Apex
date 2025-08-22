@@ -81,8 +81,7 @@ class Doctor(models.Model):
     experience = models.PositiveIntegerField(default=0)  # store number of years
     stars = models.PositiveIntegerField(default=0)  # store number of stars (1–5)
     rating = models.DecimalField(max_digits=2, decimal_places=1, default=0.0)  # e.g., 4.7
-
-        image = models.ImageField(upload_to='doctor_images/', blank=True, null=True)
+    image = models.ImageField(upload_to='doctor_images/', blank=True, null=True)
 
     def image_tag(self):
         if self.image:
