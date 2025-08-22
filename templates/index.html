@@ -13,22 +13,8 @@
               srcset="{% static 'assets/img/hero_section/mind_resized_600x338.webp' %}"
               width="600" 
               height="338"
-      <section id="contact" class="contact section">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-8 text-center">
-          <h1 data-aos="fade-up" data-aos-delay="200">
-            Contact Us
-          </h1>
-          <p data-aos="fade-up" data-aos-delay="250">
-            We're here to help—reach out today to schedule an appointment or ask any questions you may have.
-          </p>
-        </div>
-      </div>
-      <br>
-      <br>
-      
-      {% include "map.html" %}      <source 
+            >
+            <source 
               media="(max-width: 768px)" 
               srcset="{% static 'assets/img/hero_section/mind_resized_800x450.webp' %}"
               width="800" 
@@ -75,7 +61,7 @@ Our dedicated team provides mental health support and physical recovery plans de
                     <a href="{% url 'create_patient' %}" class="btn btn-primary"
                       >Book Appointment</a
                     >
-                    <a href="{% url 'services' %}" class="btn btn-outline"
+                    <a href="{% url 'service' %}" class="btn btn-outline"
                       >Explore Services</a
                     >
                   </div>
@@ -229,7 +215,7 @@ Our dedicated team provides mental health support and physical recovery plans de
               <a href="{% url 'about' %}" class="btn btn-primary"
                 >Learn More About Us</a
               >
-              <a href="{% url 'doctors' %}" class="btn btn-outline">Meet Our Team</a>
+              <a href="{% url 'doctor' %}" class="btn btn-outline">Meet Our Team</a>
             </div>
           </div>
         </div>
@@ -496,7 +482,7 @@ Our dedicated team provides mental health support and physical recovery plans de
 
           <div class="cta-buttons" data-aos="fade-up" data-aos-delay="300">
             <a href="{% url 'create_patient' %}" class="btn-primary">Book Appointment</a>
-            <a href="{% url 'doctors' %}" class="btn-secondary">Find a Doctor</a>
+            <a href="{% url 'doctor' %}" class="btn-secondary">Find a Doctor</a>
           </div>
         </div>
       </div>
@@ -511,7 +497,7 @@ Our dedicated team provides mental health support and physical recovery plans de
             <p>
               Get immediate mental health support anytime, ensuring safety, stability, and expert attention when you need it most.
             </p>
-            <a href="{% url 'services' %}" class="feature-link">
+            <a href="{% url 'service' %}" class="feature-link">
               <span>Learn More</span>
               <i class="bi bi-arrow-right"></i>
             </a>
@@ -543,7 +529,7 @@ Our dedicated team provides mental health support and physical recovery plans de
             <p>
               Our licensed professionals deliver compassionate, evidence-based care focused on your mental health and recovery.
             </p>
-            <a href="{% url 'doctors' %}" class="feature-link">
+            <a href="{% url 'doctor' %}" class="feature-link">
               <span>Meet Our Doctors</span>
               <i class="bi bi-arrow-right"></i>
             </a>
