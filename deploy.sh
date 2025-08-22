@@ -91,6 +91,7 @@ main() {
     echo "Starting new container..."
     docker run -d --restart always -p 8001:8001 \
       --name apex \
+      -v /root/apex_media:/app/media \
       -e DB_HOST="$DB_HOST" \
       -e DB_NAME="$DB_NAME" \
       -e DB_USER="$DB_USER" \
