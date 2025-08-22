@@ -26,7 +26,7 @@ class PatientAdmin(admin.ModelAdmin):
 class PatientProfileAdmin(admin.ModelAdmin):
     list_display = (
         'user', 'first_name', 'last_name', 'dob', 'birth_sex', 'gender_identity',
-        'email', 'primary_phone'
+        'email', 'primary_phone', 'image_tag'
     )
     search_fields = (
         'user__first_name', 'user__last_name', 'email',
