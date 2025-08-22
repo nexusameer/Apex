@@ -35,9 +35,9 @@
               <div class="doctor-description">
                 <h3>About Dr. {{ doctor.name }}</h3>
                 {% if doctor.description %}
-                  <p>{{ doctor.description|linebreaks }}</p>
+                  <p style="text-align: justify;">{{ doctor.description|linebreaks }}</p>
                 {% else %}
-                  <p>{{ doctor.name }} is a dedicated healthcare professional committed to providing excellent care and service.</p>
+                  <p style="text-align: justify;">{{ doctor.name }} is a dedicated healthcare professional committed to providing excellent care and service.</p>
                 {% endif %}
               </div>
 
