@@ -38,16 +38,18 @@ class SuccessView(TemplateView):
 class AppointmentView(TemplateView):
     template_name = 'appointment.html'
 
-class ContactDetailView(TemplateView):
+class DoctorDetailView(TemplateView):
     template_name = 'doctor_detail.html'
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         try:
-            doctor = Doctor.objects.get(id=kwargs.get('contact_id'))
+            doctor = Doctor.objects.get(id=kwargs.get('doctor_id'))
             context['doctor'] = doctor
+            return context
         except Doctor.DoesNotExist:
             # Handle case where doctor doesn't exist
+            return redirect('doctors')
             context['doctor'] = None
         return context
 
