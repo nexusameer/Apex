@@ -70,7 +70,7 @@ class PatientProfile(models.Model):
 
 class Doctor(models.Model):
     name = models.CharField(max_length=255)
-    image = models.ImageField(upload_to='doctor_images/', blank=True, null=True)
+    image = CloudinaryField('image', blank=True, null=True)
     designation = models.CharField(max_length=255)   # e.g., "Board-Certified Psychiatrist"
     description = models.TextField(blank=True, null=True)  # Add description field
     experience = models.PositiveIntegerField(default=0)  # store number of years
