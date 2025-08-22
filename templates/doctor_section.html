@@ -24,21 +24,13 @@
             </div>
             <div class="doctor-info">
               <h5>{{ doctor.name }}</h5>
-              <p class="specialty">{{ doctor.designation }}</p>
-              {% if doctor.description %}
-              <p class="description">{{ doctor.description|truncatewords:20 }}</p>
-              {% endif %}
               <div class="rating">
-                {% if doctor.rating > 0 %}
-                  {% for i in "12345" %}
-                    {% if forloop.counter <= doctor.rating %}
-                      <i class="bi bi-star-fill"></i>
-                    {% else %}
-                      <i class="bi bi-star"></i>
-                    {% endif %}
-                  {% endfor %}
-                  <span class="rating-text">({{ doctor.rating }})</span>
-                {% endif %}
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-half"></i>
+                <span class="rating-text">({{doctor.rating}})</span>
               </div>
               <div class="view-profile mt-2">
                 <span class="btn btn-outline-primary btn-sm">View Profile</span>
