@@ -71,8 +71,8 @@ class PatientProfileAdmin(admin.ModelAdmin):
 
 @admin.register(Doctor)
 class DoctorAdmin(admin.ModelAdmin):
-    list_display = ('name', 'designation', 'experience', 'stars', 'rating', 'image_tag')
-    search_fields = ('name', 'designation')
+    list_display = ('name', 'designation', 'description', 'experience', 'stars', 'rating', 'image_tag')
+    search_fields = ('name', 'designation', 'description')
     list_filter = ('designation', 'experience', 'stars', 'rating')
     readonly_fields = ('image_tag',)
     ordering = ('name',)

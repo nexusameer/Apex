@@ -72,10 +72,11 @@ class Doctor(models.Model):
     name = models.CharField(max_length=255)
     image = CloudinaryField('image', blank=True, null=True)
     designation = models.CharField(max_length=255)   # e.g., "Board-Certified Psychiatrist"
+    description = models.TextField(blank=True, null=True)  # Add description field
     experience = models.PositiveIntegerField(default=0)  # store number of years
     stars = models.PositiveIntegerField(default=0)  # store number of stars (1–5)
     rating = models.DecimalField(max_digits=2, decimal_places=1, default=0.0)  # e.g., 4.7
-    
+
 
     def image_tag(self):
         if self.image:
