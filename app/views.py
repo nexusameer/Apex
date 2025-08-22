@@ -32,7 +32,7 @@ class TermsView(TemplateView):
 class ServiceView(TemplateView):
     template_name = 'services.html'
 
-class ErrorView(TemplateView):
+class SuccessView(TemplateView):
     template_name = '404.html'
 
 class AppointmentView(TemplateView):
@@ -129,7 +129,7 @@ def select_services(request, username):
         patient_profile.services.set(selected_service_ids)  # Replaces old services with new
         patient_profile.save()
 
-        return redirect('error')  # or redirect to next step like 'signature'
+        return redirect('success')  # or redirect to next step like 'signature'
 
     return render(request, 'select_services.html', {
         'patient': patient,
