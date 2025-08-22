@@ -85,12 +85,17 @@
   font-size: 1rem;
   line-height: 1.6;
   margin: 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
 }
 
 .card-content a {
   color: #049ebb;
   text-decoration: none;
   transition: color 0.3s ease;
+  word-break: break-all;
+  overflow-wrap: anywhere;
 }
 
 .card-content a:hover {
@@ -169,6 +174,12 @@
     font-size: 1.2rem;
   }
   
+  .card-content p {
+    font-size: 0.9rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  
   .social-links-panel {
     padding: 2rem 1.5rem;
   }
@@ -177,6 +188,43 @@
     width: 45px;
     height: 45px;
     font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .contact-info.section {
+    padding: 40px 0;
+  }
+  
+  .contact-info-header h2 {
+    font-size: 1.8rem;
+  }
+  
+  .contact-info-header .lead {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+  
+  .info-card {
+    padding: 1.5rem 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .card-content h4 {
+    font-size: 1.1rem;
+  }
+  
+  .card-content p {
+    font-size: 0.85rem;
+    word-break: break-all;
+    overflow-wrap: anywhere;
+    hyphens: auto;
+  }
+  
+  .card-content a {
+    display: inline-block;
+    max-width: 100%;
+    word-break: break-all;
   }
 }
 
@@ -189,8 +237,40 @@
     padding: 1.5rem 1rem;
   }
   
+  .card-content p {
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+  
   .social-icons {
     gap: 0.8rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .contact-info-header h2 {
+    font-size: 1.5rem;
+  }
+  
+  .info-card {
+    padding: 1rem 0.5rem;
+  }
+  
+  .card-content h4 {
+    font-size: 1rem;
+  }
+  
+  .card-content p {
+    font-size: 0.75rem;
+  }
+  
+  .icon-container {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .icon-container i {
+    font-size: 1.5rem;
   }
 }
 </style>
