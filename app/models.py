@@ -64,7 +64,7 @@ class PatientProfile(models.Model):
     
     def image_tag(self):
         if self.profile_image:
-            return format_html('<img src="{}" width="400" height="400" style="border-radius:8px;" />', self.profile_image.url)
+            return format_html('<img src="{}" width="80" height="80" style="border-radius:8px;" />', self.profile_image.url)
         return "No image"
 
     def __str__(self):
