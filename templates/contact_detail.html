@@ -22,22 +22,22 @@
       </div>
     </div><!-- End Page Title -->
 
-    <!-- Contact Detail Section -->
-    <section id="contact-detail" class="contact-detail section">
+    <!-- Doctor Detail Section -->
+    <section id="doctor-detail" class="doctor-detail section">
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         
         <div class="row gy-4">
           <!-- Left Side - Doctor Information -->
           <div class="col-lg-8">
-            <div class="contact-info-card">
+            <div class="doctor-info-card">
               <!-- Doctor Header -->
-              <div class="contact-header">
+              <div class="doctor-header">
                 <h2>{{ doctor.name }}</h2>
-                <p class="contact-designation">{{ doctor.designation }}</p>
+                <p class="doctor-designation">{{ doctor.designation }}</p>
               </div>
 
               <!-- Doctor Description -->
-              <div class="contact-description">
+              <div class="doctor-description">
                 <h3>About Dr. {{ doctor.name }}</h3>
                 {% if doctor.description %}
                   <p>{{ doctor.description|linebreaks }}</p>
@@ -47,10 +47,8 @@
               </div>
 
               <!-- Action Buttons -->
-              <div class="contact-actions">
-                <a href="{% url 'appointment' %}" class="btn btn-primary">
-                  <i class="bi bi-calendar-plus"></i> Book Appointment
-                </a>
+              <div class="doctor-actions">
+
                 <a href="{% url 'contact' %}" class="btn btn-outline-primary">
                   <i class="bi bi-envelope"></i> Contact Us
                 </a>
@@ -60,8 +58,8 @@
 
           <!-- Right Side - Doctor Picture -->
           <div class="col-lg-4">
-            <div class="contact-image-card" data-aos="fade-left" data-aos-delay="200">
-              <div class="contact-image">
+            <div class="doctor-image-card" data-aos="fade-left" data-aos-delay="200">
+              <div class="doctor-image">
                 {% if doctor.image %}
                   <img src="{{ doctor.image.url }}" alt="{{ doctor.name }}" class="img-fluid">
                 {% else %}
@@ -84,7 +82,7 @@
         </div>
 
       </div>
-    </section><!-- End Contact Detail Section -->
+    </section><!-- End Doctor Detail Section -->
 
   </main>
 

@@ -5248,7 +5248,7 @@ section,
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-fill-color: transparent;
+  /* text-fill-color: transparent; */
 }
 
 .contact .form-container p {
@@ -6155,13 +6155,15 @@ section,
 }
 
 /*--------------------------------------------------------------
-# Contact Detail Page
+# Contact Detail Page / Doctor Detail Page
 --------------------------------------------------------------*/
-.contact-detail {
+.contact-detail,
+.doctor-detail {
   padding: 80px 0;
 }
 
-.contact-info-card {
+.contact-info-card,
+.doctor-info-card {
   background: var(--surface-color);
   padding: 40px;
   border-radius: 15px;
@@ -6169,20 +6171,23 @@ section,
   height: 100%;
 }
 
-.contact-header {
+.contact-header,
+.doctor-header {
   margin-bottom: 30px;
   padding-bottom: 20px;
   border-bottom: 2px solid var(--accent-color);
 }
 
-.contact-header h2 {
+.contact-header h2,
+.doctor-header h2 {
   color: var(--heading-color);
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 10px;
 }
 
-.contact-designation {
+.contact-designation,
+.doctor-designation {
   color: var(--accent-color);
   font-size: 1.2rem;
   font-weight: 600;
@@ -6219,18 +6224,21 @@ section,
   margin-left: 10px;
 }
 
-.contact-description {
+.contact-description,
+.doctor-description {
   margin-bottom: 40px;
 }
 
-.contact-description h3 {
+.contact-description h3,
+.doctor-description h3 {
   color: var(--heading-color);
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 20px;
 }
 
-.contact-description p {
+.contact-description p,
+.doctor-description p {
   color: var(--default-color);
   line-height: 1.8;
   font-size: 1.1rem;
@@ -6290,14 +6298,16 @@ section,
   color: var(--heading-color);
 }
 
-.contact-actions {
+.contact-actions,
+.doctor-actions {
   margin-top: 40px;
   display: flex;
   gap: 15px;
   flex-wrap: wrap;
 }
 
-.contact-actions .btn {
+.contact-actions .btn,
+.doctor-actions .btn {
   padding: 12px 25px;
   font-weight: 600;
   border-radius: 25px;
@@ -6307,29 +6317,34 @@ section,
   gap: 8px;
 }
 
-.contact-actions .btn-primary {
+.contact-actions .btn-primary,
+.doctor-actions .btn-primary {
   background: var(--accent-color);
   border-color: var(--accent-color);
 }
 
-.contact-actions .btn-primary:hover {
+.contact-actions .btn-primary:hover,
+.doctor-actions .btn-primary:hover {
   background: var(--heading-color);
   border-color: var(--heading-color);
   transform: translateY(-2px);
 }
 
-.contact-actions .btn-outline-primary {
+.contact-actions .btn-outline-primary,
+.doctor-actions .btn-outline-primary {
   color: var(--accent-color);
   border-color: var(--accent-color);
 }
 
-.contact-actions .btn-outline-primary:hover {
+.contact-actions .btn-outline-primary:hover,
+.doctor-actions .btn-outline-primary:hover {
   background: var(--accent-color);
   border-color: var(--accent-color);
   transform: translateY(-2px);
 }
 
-.contact-image-card {
+.contact-image-card,
+.doctor-image-card {
   background: var(--surface-color);
   border-radius: 15px;
   box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
@@ -6339,19 +6354,22 @@ section,
   top: 100px;
 }
 
-.contact-image {
+.contact-image,
+.doctor-image {
   position: relative;
   overflow: hidden;
 }
 
-.contact-image img {
+.contact-image img,
+.doctor-image img {
   width: 100%;
   height: 400px;
   object-fit: cover;
   transition: transform 0.3s ease;
 }
 
-.contact-image:hover img {
+.contact-image:hover img,
+.doctor-image:hover img {
   transform: scale(1.05);
 }
 
