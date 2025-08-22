@@ -68,3 +68,12 @@ class PatientProfileAdmin(admin.ModelAdmin):
 
     last_name.admin_order_field = 'user__last_name'
     last_name.short_description = 'Last Name'
+
+@admin.register(Doctor)
+class DoctorAdmin(admin.ModelAdmin):
+    list_display = ('name', 'designation', 'experience', 'stars', 'rating', 'image_tag')
+    search_fields = ('name', 'designation')
+    list_filter = ('designation', 'experience', 'stars', 'rating')
+    readonly_fields = ('image_tag',)
+    ordering = ('name',)
+    list_per_page = 25
