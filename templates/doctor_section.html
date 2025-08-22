@@ -1,51 +1,51 @@
 {% load static %}
 <section id="find-a-doctor" class="find-a-doctor section">
-    <!-- Section Title -->
-    <div class="container section-title" data-aos="fade-up">
-      <h2>Doctors</h2>
-      <p>
-        Meet the dedicated experts committed to guiding you toward lasting mental health and emotional well-being.
-      </p>
-    </div>
-    <!-- End Section Title -->
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Doctors</h2>
+    <p>
+      Meet the dedicated experts committed to guiding you toward lasting mental health and emotional well-being.
+    </p>
+  </div>
+  <!-- End Section Title -->
 
-    <div class="container" data-aos="fade-up" data-aos-delay="100">
-      <div class="row" data-aos="fade-up" data-aos-delay="400">
-        {% for doctor in doctors %}
-        <div class="col-lg-4 col-md-6 mb-4">
-          <div class="doctor-card">
-            <div class="doctor-image">
-              {% if doctor.image %}
-                <img src="{{ doctor.image.url }}" alt="{{ doctor.name }}" class="img-fluid" />
-              {% else %}
-                <img src="{% static 'assets/img/doctor/default-doctor.jpg' %}" alt="{{ doctor.name }}" class="img-fluid" />
-              {% endif %}
-            </div>
-            <div class="doctor-info">
-              <h5>{{ doctor.name }}</h5>
-              <p class="specialty">{{ doctor.designation }}</p>
-              <p class="experience">{{ doctor.experience }}+ years experience</p>
-              <div class="rating">
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-half"></i>
-                <span class="rating-text">({{ doctor.rating }})</span>
-              </div>
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <div class="row" data-aos="fade-up" data-aos-delay="400">
+      {% for doctor in doctors %}
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="doctor-card">
+          <div class="doctor-image">
+            {% if doctor.image %}
+            <img src="{{ doctor.image.url }}" alt="{{ doctor.name }}" class="img-fluid" />
+            {% else %}
+            <img src="{% static 'assets/img/doctor/default-doctor.jpg' %}" alt="{{ doctor.name }}" class="img-fluid" />
+            {% endif %}
+          </div>
+          <div class="doctor-info">
+            <h5>{{ doctor.name }}</h5>
+            <p class="specialty">{{ doctor.designation }}</p>
+            <p class="experience">{{ doctor.experience }}+ years experience</p>
+            <div class="rating">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-half"></i>
+              <span class="rating-text">({{ doctor.rating }})</span>
             </div>
           </div>
         </div>
-        {% empty %}
-        <div class="col-12">
-          <p class="text-center">No doctors available at the moment.</p>
-        </div>
-        {% endfor %}
-        <!-- End Doctor Cards -->
-
-              </div>
-    </div>
-  </section>
       </div>
+      {% empty %}
+      <div class="col-12">
+        <p class="text-center">No doctors available at the moment.</p>
+      </div>
+      {% endfor %}
+      <!-- End Doctor Cards -->
+
     </div>
-  </section>
+  </div>
+</section>
+</div>
+</div>
+</section>
