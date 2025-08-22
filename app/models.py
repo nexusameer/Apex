@@ -34,6 +34,10 @@ class Patient(models.Model):
     def __str__(self):
         return self.username
 
+# =====================
+# 3. Patient Profile
+# =====================
+
 
 class PatientProfile(models.Model):
     user = models.OneToOneField(Patient, on_delete=models.CASCADE)
@@ -57,34 +61,37 @@ class PatientProfile(models.Model):
     policy_holder_address = models.TextField(null=True, blank=True)
     policy_holder_phone = models.CharField(max_length=15, null=True, blank=True)
 
-    profile_image = CloudinaryField('image', blank=True, null=True)
+    # profile_image = CloudinaryField('image', blank=True, null=True)
     
-    def image_tag(self):
-        if self.profile_image:
-            return format_html('<img src="{}" width="400" height="400" style="border-radius:8px;" />', self.profile_image.url)
-        return "No image"
+    # def image_tag(self):
+    #     if self.profile_image:
+    #         return format_html('<img src="{}" width="400" height="400" style="border-radius:8px;" />', self.profile_image.url)
+    #     return "No image"
 
     def __str__(self):
         return f"{self.user.first_name} {self.user.last_name}"
 
+# =====================
+# 4. Doctor
+# =====================
 
 class Doctor(models.Model):
     name = models.CharField(max_length=255)
-    image = CloudinaryField('image', blank=True, null=True)
     designation = models.CharField(max_length=255)   # e.g., "Board-Certified Psychiatrist"
     description = models.TextField(blank=True, null=True)  # Add description field
     experience = models.PositiveIntegerField(default=0)  # store number of years
     stars = models.PositiveIntegerField(default=0)  # store number of stars (1–5)
     rating = models.DecimalField(max_digits=2, decimal_places=1, default=0.0)  # e.g., 4.7
 
+    # image = CloudinaryField('image', blank=True, null=True)
 
-    def image_tag(self):
-        if self.image:
-            return format_html(
-                '<img src="{}" width="150" height="150" style="border-radius:8px;" />', 
-                self.image.url
-            )
-        return "No image"
+    # def image_tag(self):
+    #     if self.image:
+    #         return format_html(
+    #             '<img src="{}" width="150" height="150" style="border-radius:8px;" />', 
+    #             self.image.url
+    #         )
+    #     return "No image"
 
     def __str__(self):
         return self.name
