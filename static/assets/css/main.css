@@ -6155,6 +6155,279 @@ section,
 }
 
 /*--------------------------------------------------------------
+# Contact Information Section
+--------------------------------------------------------------*/
+.contact-info.section {
+  padding: 80px 0;
+  background-color: #f8f9fa;
+}
+
+.contact-info-header h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2c3031;
+  margin-bottom: 1rem;
+}
+
+.contact-info-header .lead {
+  font-size: 1.2rem;
+  color: black;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.info-card {
+  background: #fff;
+  padding: 2.5rem 2rem;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.info-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.icon-container {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #049ebb, #0cc0df);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  position: relative;
+}
+
+.icon-container::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  background: linear-gradient(135deg, #049ebb, #0cc0df);
+  border-radius: 50%;
+  opacity: 0.2;
+  z-index: -1;
+}
+
+.icon-container i {
+  font-size: 2rem;
+  color: #fff;
+}
+
+.card-content h4 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #2c3031;
+  margin-bottom: 1rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.card-content p {
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+}
+
+.card-content a {
+  color: #049ebb;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  word-break: break-all;
+  overflow-wrap: anywhere;
+}
+
+.card-content a:hover {
+  color: #037a94;
+  text-decoration: underline;
+}
+
+.social-links-panel {
+  background: #fff;
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.social-links-panel h4 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2c3031;
+  font-family: 'Poppins', sans-serif;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.social-link {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #049ebb, #0cc0df);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 1.2rem;
+}
+
+.social-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(4, 158, 187, 0.3);
+  background: linear-gradient(135deg, #037a94, #049ebb);
+  color: #fff;
+}
+
+/* Contact Info Mobile Responsiveness */
+@media (max-width: 768px) {
+  .contact-info.section {
+    padding: 60px 0;
+  }
+  
+  .contact-info-header h2 {
+    font-size: 2rem;
+  }
+  
+  .info-card {
+    padding: 2rem 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .icon-container {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .icon-container i {
+    font-size: 1.8rem;
+  }
+  
+  .card-content h4 {
+    font-size: 1.2rem;
+  }
+  
+  .card-content p {
+    font-size: 0.9rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  
+  .social-links-panel {
+    padding: 2rem 1.5rem;
+  }
+  
+  .social-link {
+    width: 45px;
+    height: 45px;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .contact-info.section {
+    padding: 40px 0;
+  }
+  
+  .contact-info-header h2 {
+    font-size: 1.8rem;
+  }
+  
+  .contact-info-header .lead {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+  
+  .info-card {
+    padding: 1.5rem 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .card-content h4 {
+    font-size: 1.1rem;
+  }
+  
+  .card-content p {
+    font-size: 0.85rem;
+    word-break: break-all;
+    overflow-wrap: anywhere;
+    hyphens: auto;
+  }
+  
+  .card-content a {
+    display: inline-block;
+    max-width: 100%;
+    word-break: break-all;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-info-header .lead {
+    font-size: 1.1rem;
+  }
+  
+  .info-card {
+    padding: 1.5rem 1rem;
+  }
+  
+  .card-content p {
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+  
+  .social-icons {
+    gap: 0.8rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .contact-info-header h2 {
+    font-size: 1.5rem;
+  }
+  
+  .info-card {
+    padding: 1rem 0.5rem;
+  }
+  
+  .card-content h4 {
+    font-size: 1rem;
+  }
+  
+  .card-content p {
+    font-size: 0.75rem;
+  }
+  
+  .icon-container {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .icon-container i {
+    font-size: 1.5rem;
+  }
+}
+
+/*--------------------------------------------------------------
 # Contact Detail Page / Doctor Detail Page
 --------------------------------------------------------------*/
 .contact-detail,
