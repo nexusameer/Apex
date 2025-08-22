@@ -26,17 +26,13 @@
               <p class="specialty">{{ doctor.designation }}</p>
               <p class="experience">{{ doctor.experience }}+ years experience</p>
               <div class="rating">
-                {% for i in "12345"|slice:":"|slice:doctor.stars %}
-                  <i class="bi bi-star-fill"></i>
-                {% endfor %}
-                {% for i in "12345"|slice:doctor.stars %}
-                  <i class="bi bi-star"></i>
-                {% endfor %}
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-half"></i>
                 <span class="rating-text">({{ doctor.rating }})</span>
               </div>
-              {% if doctor.description %}
-              <p class="doctor-description">{{ doctor.description|truncatewords:20 }}</p>
-              {% endif %}
             </div>
           </div>
         </div>
@@ -46,122 +42,6 @@
         </div>
         {% endfor %}
         <!-- End Doctor Cards -->
-
-        <div class="col-lg-4 col-md-6 mb-4">
-          <div class="doctor-card">
-            <div class="doctor-image">
-              <img
-                src="{% static 'assets/img/doctor/anik.jpeg' %}"
-                alt="Dr. Michael Rodriguez"
-                class="img-fluid"
-              />
-              {% comment %}
-              <div class="availability-badge busy">In Surgery</div>
-              {% endcomment %}
-            </div>
-            <div class="doctor-info">
-              <h5>Anik Saha, MD</h5>
-              <p class="specialty">Board-Certified Psychiatrist</p>
-              <p class="experience">12+ years experience</p>
-              <div class="rating">
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-half"></i>
-                <span class="rating-text">(4.7)</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- End Doctor Card -->
-
-        <div class="col-lg-4 col-md-6 mb-4">
-          <div class="doctor-card">
-            <div class="doctor-image">
-              <img
-                src="{% static 'assets/img/doctor/brooke.jpeg' %}"
-                alt="Dr. James Thompson"
-                class="img-fluid"
-              />
-              {% comment %}
-              <div class="availability-badge offline">Next: Tomorrow 9AM</div>
-              {% endcomment %}
-            </div>
-            <div class="doctor-info">
-              <h5>Brooke Aldrich MD</h5>
-              <p class="specialty">Licensed Psychiatrist (MD)</p>
-              <p class="experience">20+ years experience</p>
-              <div class="rating">
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-half"></i>
-                <span class="rating-text">(4.8)</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- End Doctor Card -->
-
-        <div class="col-lg-4 col-md-6 mb-4">
-          <div class="doctor-card">
-            <div class="doctor-image">
-              <img
-                src="{% static 'assets/img/doctor/atika.png' %}"
-                alt="Dr. Lisa Anderson"
-                class="img-fluid"
-              />
-              {% comment %}
-              <div class="availability-badge online">Available</div>
-              {% endcomment %}
-            </div>
-            <div class="doctor-info">
-              <h5>Atika Jameel, M.D</h5>
-              <p class="specialty">Doctor of Physical Therapy</p>
-              <p class="experience">10+ years experience</p>
-              <div class="rating">
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star"></i>
-                <span class="rating-text">(4.7)</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- End Doctor Card -->
-
-        <div class="col-lg-4 col-md-6 mb-4">
-          <div class="doctor-card">
-            <div class="doctor-image">
-              <img
-                src="{% static 'assets/img/doctor/Elana miller.jpeg' %}"
-                alt="Dr. Robert Kim"
-                class="img-fluid"
-              />
-              {% comment %}
-              <div class="availability-badge online">Available</div>
-              {% endcomment %}
-            </div>
-            <div class="doctor-info">
-              <h5>Elana Miller, MD</h5>
-              <p class="specialty">Integrative Psychiatrist</p>
-              <p class="experience">18+ years experience</p>
-              <div class="rating">
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <span class="rating-text">(4.9)</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- End Doctor Card -->
 
               </div>
     </div>
