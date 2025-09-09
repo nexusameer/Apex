@@ -17,4 +17,6 @@ urlpatterns = [
     path('appointment', AppointmentView.as_view(), name='appointment'),
     path('doctors/<int:doctor_id>/', DoctorDetailView.as_view(), name='doctor_detail'),
 
+    path('privacy-policy', PrivacyPolicyView.as_view(), name='privacy_policy'),
+
 ]

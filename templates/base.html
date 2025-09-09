@@ -11,15 +11,15 @@
     <meta name="theme-color" content="#049ebb" />
 
     <!-- Resource hints for faster loading -->
-    <link rel="dns-prefetch" href="//fonts.googleapis.com">
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-    <link rel="preload" href="{% static 'assets/js/main.js' %}" as="script">
-    
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preload" href="{% static 'assets/js/main.js' %}" as="script" />
+
     <!-- Preload LCP image for fastest loading - correct hero images -->
-    <link rel="preload" href="{% static 'assets/img/hero_section/mind_resized_600x338.webp' %}" as="image" fetchpriority="high" media="(max-width: 480px)">
-    <link rel="preload" href="{% static 'assets/img/hero_section/mind_resized_800x450.webp' %}" as="image" fetchpriority="high" media="(min-width: 481px) and (max-width: 768px)">
-    <link rel="preload" href="{% static 'assets/img/hero_section/mind_resized_1000x563.webp' %}" as="image" fetchpriority="high" media="(min-width: 769px)">
+    <link rel="preload" href="{% static 'assets/img/hero_section/mind_resized_600x338.webp' %}" as="image" fetchpriority="high" media="(max-width: 480px)" />
+    <link rel="preload" href="{% static 'assets/img/hero_section/mind_resized_800x450.webp' %}" as="image" fetchpriority="high" media="(min-width: 481px) and (max-width: 768px)" />
+    <link rel="preload" href="{% static 'assets/img/hero_section/mind_resized_1000x563.webp' %}" as="image" fetchpriority="high" media="(min-width: 769px)" />
 
     <!-- Favicons with optimized loading -->
     <link href="{% static 'assets/img/favicon1.png' %}" rel="icon" />
@@ -67,137 +67,142 @@
       }
       
       @keyframes spin {
-        to { transform: rotate(360deg); }
+        to {
+          transform: rotate(360deg);
+        }
       }
     </style>
 
     <!-- Load ESSENTIAL CSS immediately to prevent FOUC -->
-    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-    <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
-    
+    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'assets/css/main.css' %}" rel="stylesheet" />
+
     <!-- Smart CSS loading - defer only non-critical CSS -->
     <script>
       // FOUC Prevention Strategy
-      (function() {
+      ;(function () {
         // Hide content initially
-        document.documentElement.className += ' content-hidden';
-        
-        var stylesLoaded = 0;
-        var totalCriticalStyles = 2; // Bootstrap + Main CSS
-        
+        document.documentElement.className += ' content-hidden'
+      
+        var stylesLoaded = 0
+        var totalCriticalStyles = 2 // Bootstrap + Main CSS
+      
         function checkStylesLoaded() {
-          stylesLoaded++;
+          stylesLoaded++
           if (stylesLoaded >= totalCriticalStyles) {
             // All critical styles loaded, show content
-            setTimeout(function() {
-              document.documentElement.className = document.documentElement.className.replace('content-hidden', '');
-              var preloader = document.getElementById('preloader');
+            setTimeout(function () {
+              document.documentElement.className = document.documentElement.className.replace('content-hidden', '')
+              var preloader = document.getElementById('preloader')
               if (preloader) {
-                preloader.style.opacity = '0';
-                setTimeout(function() {
-                  preloader.style.display = 'none';
-                }, 300);
+                preloader.style.opacity = '0'
+                setTimeout(function () {
+                  preloader.style.display = 'none'
+                }, 300)
               }
-            }, 100); // Small delay to ensure render
+            }, 100) // Small delay to ensure render
           }
         }
-        
+      
         // Monitor CSS loading
-        var bootstrapLink = document.querySelector('link[href*="bootstrap.min.css"]');
-        var mainLink = document.querySelector('link[href*="main.css"]');
-        
+        var bootstrapLink = document.querySelector('link[href*="bootstrap.min.css"]')
+        var mainLink = document.querySelector('link[href*="main.css"]')
+      
         if (bootstrapLink) {
-          bootstrapLink.onload = checkStylesLoaded;
+          bootstrapLink.onload = checkStylesLoaded
         } else {
-          stylesLoaded++; // If already loaded
+          stylesLoaded++ // If already loaded
         }
-        
+      
         if (mainLink) {
-          mainLink.onload = checkStylesLoaded;
+          mainLink.onload = checkStylesLoaded
         } else {
-          stylesLoaded++; // If already loaded
+          stylesLoaded++ // If already loaded
         }
-        
+      
         // Fallback - show content after 2 seconds max
-        setTimeout(function() {
-          document.documentElement.className = document.documentElement.className.replace('content-hidden', '');
-          var preloader = document.getElementById('preloader');
+        setTimeout(function () {
+          document.documentElement.className = document.documentElement.className.replace('content-hidden', '')
+          var preloader = document.getElementById('preloader')
           if (preloader) {
-            preloader.style.display = 'none';
+            preloader.style.display = 'none'
           }
-        }, 2000);
-        
+        }, 2000)
+      
         // Load non-critical CSS after page loads
-        var nonCriticalCSS = [
-          '{% static "assets/vendor/bootstrap-icons/bootstrap-icons.css" %}',
-          '{% static "assets/vendor/fontawesome-free/css/all.min.css" %}',
-          '{% static "assets/vendor/aos/aos.css" %}',
-          '{% static "assets/vendor/swiper/swiper-bundle.min.css" %}',
-          '{% static "assets/vendor/glightbox/css/glightbox.min.css" %}'
-        ];
-        
-        window.addEventListener('load', function() {
-          nonCriticalCSS.forEach(function(href) {
-            var link = document.createElement('link');
-            link.rel = 'stylesheet';
-            link.href = href;
-            link.media = 'all';
-            document.head.appendChild(link);
-          });
-        });
-        
+        var nonCriticalCSS = ['{% static "assets/vendor/bootstrap-icons/bootstrap-icons.css" %}', '{% static "assets/vendor/fontawesome-free/css/all.min.css" %}', '{% static "assets/vendor/aos/aos.css" %}', '{% static "assets/vendor/swiper/swiper-bundle.min.css" %}', '{% static "assets/vendor/glightbox/css/glightbox.min.css" %}']
+      
+        window.addEventListener('load', function () {
+          nonCriticalCSS.forEach(function (href) {
+            var link = document.createElement('link')
+            link.rel = 'stylesheet'
+            link.href = href
+            link.media = 'all'
+            document.head.appendChild(link)
+          })
+        })
+      
         // Preload critical LCP image based on device size
-        var img = new Image();
+        var img = new Image()
         if (window.innerWidth <= 480) {
-          img.src = '{% static "assets/img/hero_section/mind_resized_600x338.webp" %}';
+          img.src = '{% static "assets/img/hero_section/mind_resized_600x338.webp" %}'
         } else if (window.innerWidth <= 768) {
-          img.src = '{% static "assets/img/hero_section/mind_resized_800x450.webp" %}';
+          img.src = '{% static "assets/img/hero_section/mind_resized_800x450.webp" %}'
         } else {
-          img.src = '{% static "assets/img/hero_section/mind_resized_1000x563.webp" %}';
+          img.src = '{% static "assets/img/hero_section/mind_resized_1000x563.webp" %}'
         }
-          
+      
         // Register service worker for caching
         if ('serviceWorker' in navigator) {
-          window.addEventListener('load', function() {
-            navigator.serviceWorker.register('/static/sw.js')
-              .then(function(registration) {
-                console.log('SW registered: ', registration);
+          window.addEventListener('load', function () {
+            navigator.serviceWorker
+              .register('/static/sw.js')
+              .then(function (registration) {
+                console.log('SW registered: ', registration)
               })
-              .catch(function(registrationError) {
-                console.log('SW registration failed: ', registrationError);
-              });
-          });
+              .catch(function (registrationError) {
+                console.log('SW registration failed: ', registrationError)
+              })
+          })
         }
-      })();
+      })()
     </script>
-    
+
     <!-- Fallback for no-JS users - load all CSS -->
     <noscript>
-      <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
-      <link href="{% static 'assets/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
-      <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
-      <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
-      <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+      <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet" />
+      <link href="{% static 'assets/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" />
+      <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet" />
+      <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet" />
+      <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet" />
     </noscript>
     <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-N9RBKBL7');</script>
-<!-- End Google Tag Manager -->
+    <script>
+      ;(function (w, d, s, l, i) {
+        w[l] = w[l] || []
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' })
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : ''
+        j.async = true
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl
+        f.parentNode.insertBefore(j, f)
+      })(window, document, 'script', 'dataLayer', 'GTM-N9RBKBL7')
+    </script>
+    <!-- End Google Tag Manager -->
   </head>
 
   <body class="index-page">
     <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N9RBKBL7"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N9RBKBL7" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <!-- Preloader to prevent FOUC -->
     <div id="preloader">
       <div class="loading-spinner"></div>
     </div>
-    
+
     <header id="header" class="header d-flex align-items-center fixed-top">
       <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
         <a href="{% url 'index' %}" class="logo d-flex align-items-center me-auto me-xl-0">
@@ -311,6 +316,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </ul>
           </div>
 
+          <div class="col-lg-2 col-md-3 footer-links">
+            <h4><a href="{% url 'privacy_policy' %}" style="text-decoration: none; color: inherit;">Privacy Policy</a></h4>
+          </div>
         </div>
       </div>
 

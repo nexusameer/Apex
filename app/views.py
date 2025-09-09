@@ -15,8 +15,12 @@ class IndexView(TemplateView):
 class ContactView(TemplateView):
     template_name = 'contact.html'
 
+
 class AboutView(TemplateView):
     template_name = 'about.html'
+
+class PrivacyPolicyView(TemplateView):
+    template_name = 'privacy_policy.html'
 
 class DoctorView(TemplateView):
     template_name = 'doctors.html'
