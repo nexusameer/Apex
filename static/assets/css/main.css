@@ -1,4 +1,19 @@
+/*
+Best Practices for LCP/FCP:
+- Inline critical CSS for above-the-fold content.
+- Use font-display: swap for all web fonts.
+- Use loading="lazy" and decoding="async" for images not in viewport.
+- Preload LCP images and critical CSS.
+- Defer or async non-critical JS.
+- Minimize third-party scripts and large bundles.
+- Use responsive images (WebP, srcset, picture).
+- Optimize server response time and static file caching.
+*/
 @charset "UTF-8";
+/*
+If you add custom @font-face rules, always include:
+  font-display: swap;
+*/
 :root {
   --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --heading-font: "Raleway",  sans-serif;

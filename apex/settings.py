@@ -160,14 +160,19 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')    # for production
 
 # Enable compression and caching for static files
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# WhiteNoise settings for better static file serving
+# WhiteNoise: static file compression and caching
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 WHITENOISE_USE_FINDERS = True
 WHITENOISE_AUTOREFRESH = True if DEBUG else False
 WHITENOISE_MAX_AGE = 31536000  # 1 year cache
+WHITENOISE_MIMETYPES = {
+    '.br': 'application/brotli',
+}
 
-# Compression settings
+# Enable Brotli and Gzip compression
+INSTALLED_APPS += ['brotli']
+
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',

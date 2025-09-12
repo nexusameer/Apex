@@ -32,15 +32,31 @@
   <!-- Fonts - Optimized loading to reduce render blocking -->
   <link href="https://fonts.googleapis.com" rel="preconnect" />
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
-  
+
   <!-- Load only essential fonts immediately, defer others -->
+
+  <!-- Fonts: Use font-display: swap for performance -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" media="print"
-    onload="this.media='all'" />
-  <!-- Fallback for no-JS -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
   <noscript>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   </noscript>
+  <style>
+    @font-face {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: local('Roboto'), url('https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu4mxM.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: local('Poppins'), url('https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfedw.woff2') format('woff2');
+    }
+  </style>
 
   <!-- Critical CSS inline for immediate render - Only minimal preloader CSS -->
   <style>
@@ -215,8 +231,7 @@
       class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
       <a href="{% url 'index' %}" class="logo d-flex align-items-center me-auto me-xl-0">
         <!-- Optimized logo with proper dimensions -->
-        <img src="{% static 'assets/img/logo.webp' %}" alt="Mind Relief Clinic Logo" width="40" height="40"
-          loading="eager" />
+  <img src="{% static 'assets/img/logo.webp' %}" alt="Mind Relief Clinic Logo" width="40" height="40" loading="eager" decoding="async" />
         <h1 class="sitename">
           Mind Relief<br />
           <span>Clinic</span>
@@ -337,8 +352,7 @@
           <br>
           <br>
           <div class="container text-center mt-2">
-            <img src="{% static 'assets/img/hipaa-logo.png' %}" alt="HIPAA Compliant"
-              style="width: 100%; height: auto; margin: 0 0 0 0 auto; margin-left: -20px;" />
+            <img src="{% static 'assets/img/hipaa-logo.png' %}" alt="HIPAA Compliant" style="width: 100%; height: auto; margin: 0 0 0 0 auto; margin-left: -20px;" loading="lazy" decoding="async" />
           </div>
         </div>
       </div>
@@ -357,6 +371,7 @@
       class="bi bi-arrow-up-short"></i></a>
 
   <!-- Essential JS Files - Load immediately -->
+  <!-- JS: Use defer for all scripts, async for analytics -->
   <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}" defer></script>
   <script src="{% static 'assets/vendor/aos/aos.js' %}" defer></script>
   <script src="{% static 'assets/vendor/php-email-form/validate.js' %}" defer></script>
@@ -365,9 +380,16 @@
   <script src="{% static 'assets/vendor/imagesloaded/imagesloaded.pkgd.min.js' %}" defer></script>
   <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}" defer></script>
   <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}" defer></script>
-
-  <!-- Main JS File -->
   <script src="{% static 'assets/js/main.js' %}" defer></script>
+
+  <!-- Example: async for analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXX-X"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-XXXXXXX-X');
+  </script>
 </body>
 
 </html>
