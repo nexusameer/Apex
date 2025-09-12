@@ -49,9 +49,9 @@
             <div class="doctor-image-card" data-aos="fade-left" data-aos-delay="200">
               <div class="doctor-image">
                 {% if doctor.image %}
-                  <img src="{{ doctor.image.url }}" alt="{{ doctor.name }}" class="img-fluid">
+                  <img src="{{ doctor.image.url }}" alt="{{ doctor.name }}" class="img-fluid" loading="lazy" decoding="async">
                 {% else %}
-                  <img src="{% static 'assets/img/person/default-person.jpg' %}" alt="{{ doctor.name }}" class="img-fluid">
+                  <img src="{% static 'assets/img/person/default-person.jpg' %}" alt="{{ doctor.name }}" class="img-fluid" loading="lazy" decoding="async">
                 {% endif %}
               </div>
               <div class="doctor-actions mt-4 d-flex justify-content-center gap-3" style="margin-bottom: 12px;">
