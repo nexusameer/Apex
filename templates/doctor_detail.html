@@ -51,7 +51,7 @@
                 {% if doctor.image %}
                   <img src="{{ doctor.image.url }}" alt="{{ doctor.name }}" class="img-fluid" loading="lazy" decoding="async">
                 {% else %}
-                  <img src="{% static 'assets/img/person/default-person.jpg' %}" alt="{{ doctor.name }}" class="img-fluid" loading="lazy" decoding="async">
+                  <img src="{{doctor.image.url}}" alt="{{ doctor.name }}" class="img-fluid" loading="lazy" decoding="async">
                 {% endif %}
               </div>
               <div class="doctor-actions mt-4 d-flex justify-content-center gap-3" style="margin-bottom: 12px;">

@@ -18,13 +18,13 @@
             <div class="doctor-image">
               {% if doctor.image %}
               <picture>
-                <source srcset="{{ doctor.image.url|cut:'.jpeg'|cut:'.jpg'|add:'.webp' }}" type="image/webp">
+                <source srcset="{{ doctor.image.url }}" type="image/webp">
                 <img src="{{ doctor.image.url }}" alt="{{ doctor.name }}" class="img-fluid" loading="lazy" decoding="async" />
               </picture>
               {% else %}
               <picture>
                 <source srcset="{% static 'assets/img/doctor/default-doctor.webp' %}" type="image/webp">
-                <img src="{% static 'assets/img/doctor/default-doctor.jpg' %}" alt="{{ doctor.name }}" class="img-fluid" loading="lazy" decoding="async" />
+                <img src="{{ doctor.image.url }}" alt="{{ doctor.name }}" class="img-fluid" loading="lazy" decoding="async" />
               </picture>
               {% endif %}
             </div>
