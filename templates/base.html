@@ -1,184 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    {% load static %}
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mind Relief</title>
-    <meta name="description" content="Mind Relief Clinic - Advanced Medical Care for Your Family's Health. Leading healthcare specialists providing comprehensive medical services." />
-    <meta name="keywords" content="healthcare, medical clinic, doctors, mental health, mind relief, medical care" />
-    <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#049ebb" />
 
-    <!-- Resource hints for faster loading -->
-    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
-    <link rel="dns-prefetch" href="//fonts.gstatic.com" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
-    <link rel="preload" href="{% static 'assets/js/main.js' %}" as="script" />
+<head>
+  {% load static %}
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mind Relief</title>
+  <meta name="description"
+    content="Mind Relief Clinic - Advanced Medical Care for Your Family's Health. Leading healthcare specialists providing comprehensive medical services." />
+  <meta name="keywords" content="healthcare, medical clinic, doctors, mental health, mind relief, medical care" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#049ebb" />
 
-    <!-- Preload LCP image for fastest loading - correct hero images -->
-    <link rel="preload" href="{% static 'assets/img/hero_section/mind_resized_600x338.webp' %}" as="image" fetchpriority="high" media="(max-width: 480px)" />
-    <link rel="preload" href="{% static 'assets/img/hero_section/mind_resized_800x450.webp' %}" as="image" fetchpriority="high" media="(min-width: 481px) and (max-width: 768px)" />
-    <link rel="preload" href="{% static 'assets/img/hero_section/mind_resized_1000x563.webp' %}" as="image" fetchpriority="high" media="(min-width: 769px)" />
+  <!-- Resource hints for faster loading -->
+  <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="preload" href="{% static 'assets/js/main.js' %}" as="script" />
 
-    <!-- Favicons with optimized loading -->
-    <link href="{% static 'assets/img/favicon1.png' %}" rel="icon" />
-    <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon" />
+  <!-- Preload LCP image for fastest loading - correct hero images -->
+  <link rel="preload" href="{% static 'assets/img/hero_section/mind_resized_600x338.webp' %}" as="image"
+    fetchpriority="high" media="(max-width: 480px)" />
+  <link rel="preload" href="{% static 'assets/img/hero_section/mind_resized_800x450.webp' %}" as="image"
+    fetchpriority="high" media="(min-width: 481px) and (max-width: 768px)" />
+  <link rel="preload" href="{% static 'assets/img/hero_section/mind_resized_1000x563.webp' %}" as="image"
+    fetchpriority="high" media="(min-width: 769px)" />
 
-    <!-- Fonts - Optimized loading to reduce render blocking -->
-    <link href="https://fonts.googleapis.com" rel="preconnect" />
-    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
-    <!-- Load only essential fonts immediately, defer others -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
-    <!-- Fallback for no-JS -->
-    <noscript>
-      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-    </noscript>
+  <!-- Favicons with optimized loading -->
+  <link href="{% static 'assets/img/favicon1.png' %}" rel="icon" />
 
-    <!-- Critical CSS inline for immediate render - Only minimal preloader CSS -->
-    <style>
-      /* Minimal preloader to prevent FOUC - all other CSS moved to main.css */
-      .content-hidden {
-        visibility: hidden;
+  <!-- Fonts - Optimized loading to reduce render blocking -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+  
+  <!-- Load only essential fonts immediately, defer others -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" media="print"
+    onload="this.media='all'" />
+  <!-- Fallback for no-JS -->
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  </noscript>
+
+  <!-- Critical CSS inline for immediate render - Only minimal preloader CSS -->
+  <style>
+    /* Minimal preloader to prevent FOUC - all other CSS moved to main.css */
+    .content-hidden {
+      visibility: hidden;
+    }
+
+    #preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 9999;
+      background: #021418;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.3s ease;
+    }
+
+    #preloader .loading-spinner {
+      width: 50px;
+      height: 50px;
+      border: 3px solid rgba(4, 158, 187, 0.3);
+      border-radius: 50%;
+      border-top-color: #049ebb;
+      animation: spin 1s ease-in-out infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
       }
-      
-      #preloader {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 9999;
-        background: #021418;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: opacity 0.3s ease;
-      }
-      
-      #preloader .loading-spinner {
-        width: 50px;
-        height: 50px;
-        border: 3px solid rgba(4, 158, 187, 0.3);
-        border-radius: 50%;
-        border-top-color: #049ebb;
-        animation: spin 1s ease-in-out infinite;
-      }
-      
-      @keyframes spin {
-        to {
-          transform: rotate(360deg);
+    }
+  </style>
+
+  <!-- Load ESSENTIAL CSS immediately to prevent FOUC -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'assets/css/main.css' %}" rel="stylesheet" />
+
+  <!-- Smart CSS loading - defer only non-critical CSS -->
+  <script>
+    // FOUC Prevention Strategy
+    ; (function () {
+      // Hide content initially
+      document.documentElement.className += ' content-hidden'
+
+      var stylesLoaded = 0
+      var totalCriticalStyles = 2 // Bootstrap + Main CSS
+
+      function checkStylesLoaded() {
+        stylesLoaded++
+        if (stylesLoaded >= totalCriticalStyles) {
+          // All critical styles loaded, show content
+          setTimeout(function () {
+            document.documentElement.className = document.documentElement.className.replace('content-hidden', '')
+            var preloader = document.getElementById('preloader')
+            if (preloader) {
+              preloader.style.opacity = '0'
+              setTimeout(function () {
+                preloader.style.display = 'none'
+              }, 300)
+            }
+          }, 100) // Small delay to ensure render
         }
       }
-    </style>
 
-    <!-- Load ESSENTIAL CSS immediately to prevent FOUC -->
-    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" />
-    <link href="{% static 'assets/css/main.css' %}" rel="stylesheet" />
+      // Monitor CSS loading
+      var bootstrapLink = document.querySelector('link[href*="bootstrap.min.css"]')
+      var mainLink = document.querySelector('link[href*="main.css"]')
 
-    <!-- Smart CSS loading - defer only non-critical CSS -->
-    <script>
-      // FOUC Prevention Strategy
-      ;(function () {
-        // Hide content initially
-        document.documentElement.className += ' content-hidden'
-      
-        var stylesLoaded = 0
-        var totalCriticalStyles = 2 // Bootstrap + Main CSS
-      
-        function checkStylesLoaded() {
-          stylesLoaded++
-          if (stylesLoaded >= totalCriticalStyles) {
-            // All critical styles loaded, show content
-            setTimeout(function () {
-              document.documentElement.className = document.documentElement.className.replace('content-hidden', '')
-              var preloader = document.getElementById('preloader')
-              if (preloader) {
-                preloader.style.opacity = '0'
-                setTimeout(function () {
-                  preloader.style.display = 'none'
-                }, 300)
-              }
-            }, 100) // Small delay to ensure render
-          }
+      if (bootstrapLink) {
+        bootstrapLink.onload = checkStylesLoaded
+      } else {
+        stylesLoaded++ // If already loaded
+      }
+
+      if (mainLink) {
+        mainLink.onload = checkStylesLoaded
+      } else {
+        stylesLoaded++ // If already loaded
+      }
+
+      // Fallback - show content after 2 seconds max
+      setTimeout(function () {
+        document.documentElement.className = document.documentElement.className.replace('content-hidden', '')
+        var preloader = document.getElementById('preloader')
+        if (preloader) {
+          preloader.style.display = 'none'
         }
-      
-        // Monitor CSS loading
-        var bootstrapLink = document.querySelector('link[href*="bootstrap.min.css"]')
-        var mainLink = document.querySelector('link[href*="main.css"]')
-      
-        if (bootstrapLink) {
-          bootstrapLink.onload = checkStylesLoaded
-        } else {
-          stylesLoaded++ // If already loaded
-        }
-      
-        if (mainLink) {
-          mainLink.onload = checkStylesLoaded
-        } else {
-          stylesLoaded++ // If already loaded
-        }
-      
-        // Fallback - show content after 2 seconds max
-        setTimeout(function () {
-          document.documentElement.className = document.documentElement.className.replace('content-hidden', '')
-          var preloader = document.getElementById('preloader')
-          if (preloader) {
-            preloader.style.display = 'none'
-          }
-        }, 2000)
-      
-        // Load non-critical CSS after page loads
-        var nonCriticalCSS = ['{% static "assets/vendor/bootstrap-icons/bootstrap-icons.css" %}', '{% static "assets/vendor/fontawesome-free/css/all.min.css" %}', '{% static "assets/vendor/aos/aos.css" %}', '{% static "assets/vendor/swiper/swiper-bundle.min.css" %}', '{% static "assets/vendor/glightbox/css/glightbox.min.css" %}']
-      
-        window.addEventListener('load', function () {
-          nonCriticalCSS.forEach(function (href) {
-            var link = document.createElement('link')
-            link.rel = 'stylesheet'
-            link.href = href
-            link.media = 'all'
-            document.head.appendChild(link)
-          })
+      }, 2000)
+
+      // Load non-critical CSS after page loads
+      var nonCriticalCSS = ['{% static "assets/vendor/bootstrap-icons/bootstrap-icons.css" %}', '{% static "assets/vendor/fontawesome-free/css/all.min.css" %}', '{% static "assets/vendor/aos/aos.css" %}', '{% static "assets/vendor/swiper/swiper-bundle.min.css" %}', '{% static "assets/vendor/glightbox/css/glightbox.min.css" %}']
+
+      window.addEventListener('load', function () {
+        nonCriticalCSS.forEach(function (href) {
+          var link = document.createElement('link')
+          link.rel = 'stylesheet'
+          link.href = href
+          link.media = 'all'
+          document.head.appendChild(link)
         })
-      
-        // Preload critical LCP image based on device size
-        var img = new Image()
-        if (window.innerWidth <= 480) {
-          img.src = '{% static "assets/img/hero_section/mind_resized_600x338.webp" %}'
-        } else if (window.innerWidth <= 768) {
-          img.src = '{% static "assets/img/hero_section/mind_resized_800x450.webp" %}'
-        } else {
-          img.src = '{% static "assets/img/hero_section/mind_resized_1000x563.webp" %}'
-        }
-      
-        // Register service worker for caching
-        if ('serviceWorker' in navigator) {
-          window.addEventListener('load', function () {
-            navigator.serviceWorker
-              .register('/static/sw.js')
-              .then(function (registration) {
-                console.log('SW registered: ', registration)
-              })
-              .catch(function (registrationError) {
-                console.log('SW registration failed: ', registrationError)
-              })
-          })
-        }
-      })()
-    </script>
+      })
 
-    <!-- Fallback for no-JS users - load all CSS -->
-    <noscript>
-      <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet" />
-      <link href="{% static 'assets/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" />
-      <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet" />
-      <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet" />
-      <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet" />
-    </noscript>
-    <!-- Google Tag Manager -->
-    <script>
-      ;(function (w, d, s, l, i) {
+      // Preload critical LCP image based on device size
+      var img = new Image()
+      if (window.innerWidth <= 480) {
+        img.src = '{% static "assets/img/hero_section/mind_resized_600x338.webp" %}'
+      } else if (window.innerWidth <= 768) {
+        img.src = '{% static "assets/img/hero_section/mind_resized_800x450.webp" %}'
+      } else {
+        img.src = '{% static "assets/img/hero_section/mind_resized_1000x563.webp" %}'
+      }
+
+      // Register service worker for caching
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function () {
+          navigator.serviceWorker
+            .register('/static/sw.js')
+            .then(function (registration) {
+              console.log('SW registered: ', registration)
+            })
+            .catch(function (registrationError) {
+              console.log('SW registration failed: ', registrationError)
+            })
+        })
+      }
+    })()
+  </script>
+
+  <!-- Fallback for no-JS users - load all CSS -->
+  <noscript>
+    <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet" />
+    <link href="{% static 'assets/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet" />
+    <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet" />
+  </noscript>
+  <!-- Google Tag Manager -->
+  <script>
+      ; (function (w, d, s, l, i) {
         w[l] = w[l] || []
         w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' })
         var f = d.getElementsByTagName(s)[0],
@@ -188,161 +194,180 @@
         j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl
         f.parentNode.insertBefore(j, f)
       })(window, document, 'script', 'dataLayer', 'GTM-N9RBKBL7')
-    </script>
-    <!-- End Google Tag Manager -->
-  </head>
+  </script>
+  <!-- End Google Tag Manager -->
+</head>
 
-  <body class="index-page">
-    <!-- Google Tag Manager (noscript) -->
-    <noscript>
-      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N9RBKBL7" height="0" width="0" style="display:none;visibility:hidden"></iframe>
-    </noscript>
-    <!-- End Google Tag Manager (noscript) -->
-    <!-- Preloader to prevent FOUC -->
-    <div id="preloader">
-      <div class="loading-spinner"></div>
+<body class="index-page">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N9RBKBL7" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <!-- Preloader to prevent FOUC -->
+  <div id="preloader">
+    <div class="loading-spinner"></div>
+  </div>
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div
+      class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+      <a href="{% url 'index' %}" class="logo d-flex align-items-center me-auto me-xl-0">
+        <!-- Optimized logo with proper dimensions -->
+        <img src="{% static 'assets/img/logo.webp' %}" alt="Mind Relief Clinic Logo" width="40" height="40"
+          loading="eager" />
+        <h1 class="sitename">
+          Mind Relief<br />
+          <span>Clinic</span>
+        </h1>
+      </a>
+      <i class="mobile-nav-toggle bi bi-list d-xl-none"></i>
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li>
+            <a href="{% url 'index' %}"
+              class="{% if request.resolver_match.url_name == 'index' %}active{% endif %}">Home</a>
+          </li>
+          <li>
+            <a href="{% url 'about' %}"
+              class="{% if request.resolver_match.url_name == 'about' %}active{% endif %}">About</a>
+          </li>
+          <li>
+            <a href="{% url 'services' %}"
+              class="{% if request.resolver_match.url_name == 'services' %}active{% endif %}">Services</a>
+          </li>
+          <li>
+            <a href="{% url 'doctors' %}"
+              class="{% if request.resolver_match.url_name == 'doctors' %}active{% endif %}">Doctors</a>
+          </li>
+          <li>
+            <a href="{% url 'contact' %}"
+              class="{% if request.resolver_match.url_name == 'contact' %}active{% endif %}">Contact</a>
+          </li>
+        </ul>
+      </nav>
+
+      <a class="btn-getstarted" href="{% url 'create_patient' %}">Book Appointment</a>
     </div>
+  </header>
 
-    <header id="header" class="header d-flex align-items-center fixed-top">
-      <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
-        <a href="{% url 'index' %}" class="logo d-flex align-items-center me-auto me-xl-0">
-          <!-- Optimized logo with proper dimensions -->
-          <img src="{% static 'assets/img/logo.webp' %}" alt="Mind Relief Clinic Logo" width="40" height="40" loading="eager" />
-          <h1 class="sitename">
-            Mind Relief<br />
-            <span>Clinic</span>
-          </h1>
-        </a>
-        <i class="mobile-nav-toggle bi bi-list d-xl-none"></i>
-        <nav id="navmenu" class="navmenu">
+  {% block content %}
+
+  {% endblock %}
+
+  <footer id="footer" class="footer position-relative light-background">
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6 footer-about">
+          <a href="index.html" class="logo d-flex align-items-center"><span class="sitename">Mind Relief</span></a>
+          <div class="footer-contact pt-3">
+            {% comment %} <p>A108 Adam Street</p> {% endcomment %}
+            {% comment %} <p>New York, NY 535022</p> {% endcomment %}
+            <p>
+              <strong>Phone:</strong> <span>+1 (866) 528-2004</span>
+            </p>
+            <p>
+              <strong>Email:</strong> <span>info@mindreliefclinic.com</span>
+            </p>
+          </div>
+          <div class="social-links d-flex mt-4">
+            {% comment %} <a href=""><i class="bi bi-twitter-x"></i></a> {% endcomment %}
+            <a href="https://www.facebook.com/profile.php?id=61578769137180" target="_blank"><i
+                class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com/mind_relief_clinic/" target="_blank"><i class="bi bi-instagram"></i></a>
+            {% comment %} <a href=""><i class="bi bi-linkedin"></i></a> {% endcomment %}
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Useful Links</h4>
           <ul>
             <li>
-              <a href="{% url 'index' %}" class="{% if request.resolver_match.url_name == 'index' %}active{% endif %}">Home</a>
+              <a href="{% url 'index' %}">Home</a>
             </li>
             <li>
-              <a href="{% url 'about' %}" class="{% if request.resolver_match.url_name == 'about' %}active{% endif %}">About</a>
+              <a href="{% url 'about' %}">About us</a>
             </li>
             <li>
-              <a href="{% url 'services' %}" class="{% if request.resolver_match.url_name == 'services' %}active{% endif %}">Services</a>
+              <a href="{% url 'services' %}">Terms of Services</a>
             </li>
             <li>
-              <a href="{% url 'doctors' %}" class="{% if request.resolver_match.url_name == 'doctors' %}active{% endif %}">Doctors</a>
-            </li>
-            <li>
-              <a href="{% url 'contact' %}" class="{% if request.resolver_match.url_name == 'contact' %}active{% endif %}">Contact</a>
+              <a href="{% url 'contact' %}">Contact</a>
             </li>
           </ul>
-        </nav>
+        </div>
 
-        <a class="btn-getstarted" href="{% url 'create_patient' %}">Book Appointment</a>
-      </div>
-    </header>
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Our Services</h4>
+          <ul>
+            <li>
+              <a href="{% url 'services' %}">Medication & Evaluation</a>
+            </li>
+            <li>
+              <a href="{% url 'services' %}">Talk Therapy</a>
+            </li>
+            <li>
+              <a href="{% url 'services' %}">Psychotherapy</a>
+            </li>
+            <li>
+              <a href="{% url 'services' %}">Counseling</a>
+            </li>
+          </ul>
+        </div>
 
-    {% block content %}
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Departments</h4>
+          <ul>
+            <li>
+              <a href="">Mental Health</a>
+            </li>
+            <li>
+              <a href="">Behavioral Health</a>
+            </li>
+            <li>
+              <a href="">Physiotherapy</a>
+            </li>
+          </ul>
+        </div>
 
-    {% endblock %}
-
-    <footer id="footer" class="footer position-relative light-background">
-      <div class="container footer-top">
-        <div class="row gy-4">
-          <div class="col-lg-4 col-md-6 footer-about">
-            <a href="index.html" class="logo d-flex align-items-center"><span class="sitename">Mind Relief</span></a>
-            <div class="footer-contact pt-3">
-              {% comment %} <p>A108 Adam Street</p> {% endcomment %}
-              {% comment %} <p>New York, NY 535022</p> {% endcomment %}
-              <p>
-                <strong>Phone:</strong> <span>+1 (866) 528-2004</span>
-              </p>
-              <p>
-                <strong>Email:</strong> <span>info@mindreliefclinic.com</span>
-              </p>
-            </div>
-            <div class="social-links d-flex mt-4">
-              {% comment %} <a href=""><i class="bi bi-twitter-x"></i></a> {% endcomment %}
-              <a href="https://www.facebook.com/profile.php?id=61578769137180" target="_blank"><i class="bi bi-facebook"></i></a>
-              <a href="https://www.instagram.com/mind_relief_clinic/" target="_blank"><i class="bi bi-instagram"></i></a>
-              {% comment %} <a href=""><i class="bi bi-linkedin"></i></a> {% endcomment %}
-            </div>
-          </div>
-
-          <div class="col-lg-2 col-md-3 footer-links">
-            <h4>Useful Links</h4>
-            <ul>
-              <li>
-                <a href="{% url 'index' %}">Home</a>
-              </li>
-              <li>
-                <a href="{% url 'about' %}">About us</a>
-              </li>
-              <li>
-                <a href="{% url 'services' %}">Terms of Services</a>
-              </li>
-              <li>
-                <a href="{% url 'contact' %}">Contact</a>
-              </li>
-            </ul>
-          </div>
-
-          <div class="col-lg-2 col-md-3 footer-links">
-            <h4>Our Services</h4>
-            <ul>
-              <li>
-                <a href="{% url 'services' %}">Medication & Evaluation</a>
-              </li>
-              <li>
-                <a href="{% url 'services' %}">Talk Therapy</a>
-              </li>
-              <li>
-                <a href="{% url 'services' %}">Psychotherapy</a>
-              </li>
-              <li>
-                <a href="{% url 'services' %}">Counseling</a>
-              </li>
-            </ul>
-          </div>
-
-          <div class="col-lg-2 col-md-3 footer-links">
-            <h4>Departments</h4>
-            <ul>
-              <li>
-                <a href="">Mental Health</a>
-              </li>
-              <li>
-                <a href="">Behavioral Health</a>
-              </li>
-              <li>
-                <a href="">Physiotherapy</a>
-              </li>
-            </ul>
-          </div>
-
-          <div class="col-lg-2 col-md-3 footer-links">
-            <h4><a href="{% url 'privacy_policy' %}" style="text-decoration: none; color: inherit;">Privacy Policy</a></h4>
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4><a href="{% url 'privacy_policy' %}" style="text-decoration: none; color: inherit;">Privacy Policy</a>
+          </h4>
+          <br>
+          <br>
+          <div class="container text-center mt-2">
+            <img src="{% static 'assets/img/hipaa-logo.png' %}" alt="HIPAA Compliant"
+              style="width: 100%; height: auto; margin: 0 0 0 0 auto; margin-left: -20px;" />
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="container copyright text-center mt-4">
-        <p>
-          © <span>Copyright</span> <strong class="px-1 sitename">Mind Relief Clinic</strong> <span>All Rights Reserved</span>
-        </p>
-      </div>
-    </footer>
+    <div class="container copyright text-center mt-4">
+      <p>
+        © <span>Copyright</span> <strong class="px-1 sitename">Mind Relief Clinic</strong> <span>All Rights
+          Reserved</span>
+      </p>
+    </div>
+  </footer>
 
-    <!-- Scroll Top -->
-    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
 
-    <!-- Essential JS Files - Load immediately -->
-    <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}" defer></script>
-    <script src="{% static 'assets/vendor/aos/aos.js' %}" defer></script>
-    <script src="{% static 'assets/vendor/php-email-form/validate.js' %}" defer></script>
-    <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}" defer></script>
-    <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}" defer></script>
-    <script src="{% static 'assets/vendor/imagesloaded/imagesloaded.pkgd.min.js' %}" defer></script>
-    <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}" defer></script>
-    <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}" defer></script>
+  <!-- Essential JS Files - Load immediately -->
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}" defer></script>
+  <script src="{% static 'assets/vendor/aos/aos.js' %}" defer></script>
+  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}" defer></script>
+  <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}" defer></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}" defer></script>
+  <script src="{% static 'assets/vendor/imagesloaded/imagesloaded.pkgd.min.js' %}" defer></script>
+  <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}" defer></script>
+  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}" defer></script>
 
-    <!-- Main JS File -->
-    <script src="{% static 'assets/js/main.js' %}" defer></script>
-  </body>
+  <!-- Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}" defer></script>
+</body>
+
 </html>
