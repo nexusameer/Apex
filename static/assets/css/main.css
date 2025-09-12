@@ -1,3 +1,28 @@
+/* Responsive HIPAA logo in footer */
+.footer .footer-links .hipaa-logo {
+  width: auto;
+  height: auto;
+  max-width: 180px;
+  margin-left: -20px;
+  display: block;
+}
+@media (max-width: 991.98px) {
+  .footer .footer-links .hipaa-logo {
+    max-width: 180px;
+    margin-left: 0;
+    margin-right: auto;
+    margin-top: 16px;
+  }
+}
+@media (max-width: 575.98px) {
+  .footer .footer-links .hipaa-logo {
+    max-width: 120px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 16px;
+    display: block;
+  }
+}
 /*
 Best Practices for LCP/FCP:
 - Inline critical CSS for above-the-fold content.
@@ -9,7 +34,6 @@ Best Practices for LCP/FCP:
 - Use responsive images (WebP, srcset, picture).
 - Optimize server response time and static file caching.
 */
-@charset "UTF-8";
 /*
 If you add custom @font-face rules, always include:
   font-display: swap;
