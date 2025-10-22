@@ -37,7 +37,8 @@
 
   <!-- Fonts: Use font-display: swap for performance -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" media="print"
+    onload="this.media='all'" />
   <noscript>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   </noscript>
@@ -49,6 +50,7 @@
       font-display: swap;
       src: local('Roboto'), url('https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu4mxM.woff2') format('woff2');
     }
+
     @font-face {
       font-family: 'Poppins';
       font-style: normal;
@@ -231,7 +233,8 @@
       class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
       <a href="{% url 'index' %}" class="logo d-flex align-items-center me-auto me-xl-0">
         <!-- Optimized logo with proper dimensions -->
-  <img src="{% static 'assets/img/logo.webp' %}" alt="Mind Relief Clinic Logo" width="40" height="40" loading="eager" decoding="async" />
+        <img src="{% static 'assets/img/logo.webp' %}" alt="Mind Relief Clinic Logo" width="40" height="40"
+          loading="eager" decoding="async" />
         <h1 class="sitename">
           Mind Relief<br />
           <span>Clinic</span>
@@ -354,7 +357,8 @@
           <h4><a href="{% url 'privacy_policy' %}" style="text-decoration: none; color: inherit;">Privacy Policy</a>
           </h4>
           <div class="container text-center mt-2">
-            <img src="{% static 'assets/img/hipaa-logo.png' %}" alt="HIPAA Compliant" class="hipaa-logo" loading="lazy" decoding="async" />
+            <img src="{% static 'assets/img/hipaa-logo.png' %}" alt="HIPAA Compliant" class="hipaa-logo" loading="lazy"
+              decoding="async" />
           </div>
         </div>
       </div>
@@ -388,7 +392,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXX-X"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'UA-XXXXXXX-X');
   </script>

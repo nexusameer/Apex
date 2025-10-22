@@ -20,7 +20,7 @@
       <p>Please enter basic patient details to begin the process.</p>
     </div>
   </div>
-  
+
 
   <!-- Patient Entry Form Section -->
   <section id="contact" class="contact section">
@@ -35,12 +35,14 @@
             <form method="post" action="{% url 'create_patient' %}">
               {% csrf_token %}
               <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="firstNameInput" name="first_name" placeholder="First Name" required>
+                <input type="text" class="form-control" id="firstNameInput" name="first_name" placeholder="First Name"
+                  required>
                 <label for="firstNameInput">First Name</label>
               </div>
 
               <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="lastNameInput" name="last_name" placeholder="Last Name" required>
+                <input type="text" class="form-control" id="lastNameInput" name="last_name" placeholder="Last Name"
+                  required>
                 <label for="lastNameInput">Last Name</label>
               </div>
 

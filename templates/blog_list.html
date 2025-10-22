@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title">
+        <div class="breadcrumbs">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#"><i class="bi bi-house"></i> Home</a></li>
+                    <li class="breadcrumb-item active current">Blog List</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="container">
+            <h1>Blogs</h1>
+            <div class="row">
+                {% for blog in blogs %}
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <img src="{{ blog.image.url }}" class="card-img-top" alt="{{ blog.title }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ blog.title }}</h5>
+                            <p class="card-text">{{ blog.content|truncatewords:20 }}</p>
+                            <a href="{% url 'blog_detail' blog.pk %}" class="btn btn-primary">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+</main>
+{% endblock %}
