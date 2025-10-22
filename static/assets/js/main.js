@@ -312,4 +312,88 @@
   //   window.insuranceSlider = new InsuranceSlider();
   // });
 
+  // FOUC Prevention Strategy
+  document.documentElement.className += ' content-hidden';
+
+  var stylesLoaded = 0;
+  var totalCriticalStyles = 2; // Bootstrap + Main CSS
+
+  function checkStylesLoaded() {
+    stylesLoaded++;
+    if (stylesLoaded >= totalCriticalStyles) {
+      setTimeout(function () {
+        document.documentElement.className = document.documentElement.className.replace('content-hidden', '');
+        var preloader = document.getElementById('preloader');
+        if (preloader) {
+          preloader.style.opacity = '0';
+          setTimeout(function () {
+            preloader.style.display = 'none';
+          }, 300);
+        }
+      }, 100);
+    }
+  }
+
+  var bootstrapLink = document.querySelector('link[href*="bootstrap.min.css"]');
+  var mainLink = document.querySelector('link[href*="main.css"]');
+
+  if (bootstrapLink) {
+    bootstrapLink.onload = checkStylesLoaded;
+  } else {
+    stylesLoaded++;
+  }
+
+  if (mainLink) {
+    mainLink.onload = checkStylesLoaded;
+  } else {
+    stylesLoaded++;
+  }
+
+  setTimeout(function () {
+    document.documentElement.className = document.documentElement.className.replace('content-hidden', '');
+    var preloader = document.getElementById('preloader');
+    if (preloader) {
+      preloader.style.display = 'none';
+    }
+  }, 2000);
+
+  var nonCriticalCSS = [
+    '/static/assets/vendor/bootstrap-icons/bootstrap-icons.css',
+    '/static/assets/vendor/fontawesome-free/css/all.min.css',
+    '/static/assets/vendor/aos/aos.css',
+    '/static/assets/vendor/swiper/swiper-bundle.min.css',
+    '/static/assets/vendor/glightbox/css/glightbox.min.css',
+  ];
+
+  window.addEventListener('load', function () {
+    nonCriticalCSS.forEach(function (href) {
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = href;
+      link.media = 'all';
+      document.head.appendChild(link);
+    });
+  });
+
+  var img = new Image();
+  if (window.innerWidth <= 480) {
+    img.src = '/static/assets/img/hero_section/mind_resized_600x338.webp';
+  } else if (window.innerWidth <= 768) {
+    img.src = '/static/assets/img/hero_section/mind_resized_800x450.webp';
+  } else {
+    img.src = '/static/assets/img/hero_section/mind_resized_1000x563.webp';
+  }
+
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker
+        .register('/static/sw.js')
+        .then(function (registration) {
+          console.log('SW registered: ', registration);
+        })
+        .catch(function (registrationError) {
+          console.log('SW registration failed: ', registrationError);
+        });
+    });
+  }
 })();
