@@ -142,5 +142,17 @@ def select_services(request, username):
         'services': services
     })
 
+from django.shortcuts import render, get_object_or_404
+from .models import Blog
+
+# Blog list view
+def blog_list(request):
+    blogs = Blog.objects.all().order_by('-created_at')
+    return render(request, 'blog_list.html', {'blogs': blogs})
+
+# Blog detail view
+def blog_detail(request, pk):
+    blog = get_object_or_404(Blog, pk=pk)
+    return render(request, 'blog_detail.html', {'blog': blog})
 
 

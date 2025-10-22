@@ -77,3 +77,13 @@ class DoctorAdmin(admin.ModelAdmin):
     readonly_fields = ('image_tag',)
     ordering = ('name',)
     list_per_page = 25
+
+from .models import Blog
+
+@admin.register(Blog)
+class BlogAdmin(admin.ModelAdmin):
+    list_display = ('title', 'created_at', 'updated_at')
+    search_fields = ('title',)
+    list_filter = ('created_at',)
+    ordering = ('-created_at',)
+

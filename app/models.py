@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 import uuid
 from django.utils.html import format_html
+from django.utils.timezone import now
 
 
 # =====================
@@ -102,5 +103,15 @@ class Doctor(models.Model):
 
 
 
+# =====================
+# 5. Bloging
+# =====================
+class Blog(models.Model):
+    title = models.CharField(max_length=200)
+    content = models.TextField()
+    image = models.ImageField(upload_to='blog_images/')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
-
+    def __str__(self):
+        return self.title

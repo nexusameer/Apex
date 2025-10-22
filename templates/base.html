@@ -257,6 +257,10 @@
               class="{% if request.resolver_match.url_name == 'doctors' %}active{% endif %}">Doctors</a>
           </li>
           <li>
+            <a href="{% url 'blog_list' %}"
+              class="{% if request.resolver_match.url_name == 'blog_list' %}active{% endif %}">Blogs</a>
+          </li>
+          <li>
             <a href="{% url 'contact' %}"
               class="{% if request.resolver_match.url_name == 'contact' %}active{% endif %}">Contact</a>
           </li>
