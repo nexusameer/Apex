@@ -344,103 +344,29 @@ Our dedicated team provides mental health support and physical recovery plans de
       </div>
       
       <div class="insurance-slider-wrapper">
-        <div class="insurance-slider" id="insuranceSlider">
+        <div class="insurance-slider d-flex" id="insuranceSlider">
           <!-- First set of slides -->
-          <div class="insurance-slide">
+          <div class="insurance-slide mx-3">
             <img src="{% static 'assets/img/logo/logo1.webp' %}" alt="Aetna Insurance" loading="lazy" decoding="async" width="150" height="100" />
           </div>
-          <div class="insurance-slide">
+          <div class="insurance-slide mx-3">
             <img src="{% static 'assets/img/logo/logo2.webp' %}" alt="Blue Cross Blue Shield" loading="lazy" decoding="async" width="150" height="100" />
           </div>
-          <div class="insurance-slide">
+          <div class="insurance-slide mx-3">
             <img src="{% static 'assets/img/logo/logo3.webp' %}" alt="Cigna Insurance" loading="lazy" decoding="async" width="150" height="100" />
           </div>
-          <div class="insurance-slide">
+          <div class="insurance-slide mx-3">
             <img src="{% static 'assets/img/logo/logo4.png' %}" alt="UnitedHealthcare" loading="lazy" decoding="async" width="150" height="100" />
           </div>
-          <div class="insurance-slide">
+          <div class="insurance-slide mx-3">
             <img src="{% static 'assets/img/logo/logo5.png' %}" alt="Humana Insurance" loading="lazy" decoding="async" width="150" height="100" />
           </div>
-          <div class="insurance-slide">
+          <div class="insurance-slide mx-3">
             <img src="{% static 'assets/img/logo/logo6.png' %}" alt="Kaiser Permanente" loading="lazy" decoding="async" width="150" height="100" />
           </div>
-          <div class="insurance-slide">
+          <div class="insurance-slide mx-3">
             <img src="{% static 'assets/img/logo/logo7.webp' %}" alt="Anthem Insurance" loading="lazy" decoding="async" width="150" height="100" />
           </div>
-          <div class="insurance-slide">
-            <img src="{% static 'assets/img/logo/logo8.webp' %}" alt="Molina Healthcare" loading="lazy" decoding="async" width="150" height="100" />
-          </div>
-          <div class="insurance-slide">
-            <img src="{% static 'assets/img/logo/logo9.webp' %}" alt="Medicare Insurance" loading="lazy" decoding="async" width="150" height="100" />
-          </div>
-          <div class="insurance-slide">
-            <img src="{% static 'assets/img/logo/logo1.webp' %}" alt="Medicaid Insurance" loading="lazy" decoding="async" width="150" height="100" />
-          </div>
-          <div class="insurance-slide">
-            <img src="{% static 'assets/img/logo/logo11.png' %}" alt="Tricare Insurance" loading="lazy" decoding="async" width="150" height="100" />
-          </div>
-          <div class="insurance-slide">
-            <img src="{% static 'assets/img/logo/logo12.webp' %}" alt="Optum Insurance" loading="lazy" decoding="async" width="150" height="100" />
-          </div>
-          <div class="insurance-slide">
-            <img src="{% static 'assets/img/logo/logo13.png' %}" alt="WellCare Insurance" loading="lazy" decoding="async" width="150" height="100" />
-          </div>
-          <div class="insurance-slide">
-            <img src="{% static 'assets/img/logo/logo14.png' %}" alt="Centene Insurance" loading="lazy" decoding="async" width="150" height="100" />
-          </div>
-          
-          <!-- Duplicate set for seamless infinite loop -->
-          <div class="insurance-slide">
-            <img src="{% static 'assets/img/logo/logo1.webp' %}" alt="Aetna Insurance" loading="lazy" width="150" height="100" />
-          </div>
-          <div class="insurance-slide">
-            <img src="{% static 'assets/img/logo/logo2.webp' %}" alt="Blue Cross Blue Shield" loading="lazy" width="150" height="100" />
-          </div>
-          <div class="insurance-slide">
-            <img src="{% static 'assets/img/logo/logo3.webp' %}" alt="Cigna Insurance" loading="lazy" width="150" height="100" />
-          </div>
-          <div class="insurance-slide">
-            <img src="{% static 'assets/img/logo/logo4.png' %}" alt="UnitedHealthcare" loading="lazy" width="150" height="100" />
-          </div>
-          <div class="insurance-slide">
-            <img src="{% static 'assets/img/logo/logo5.png' %}" alt="Humana Insurance" loading="lazy" width="150" height="100" />
-          </div>
-          <div class="insurance-slide">
-            <img src="{% static 'assets/img/logo/logo6.png' %}" alt="Kaiser Permanente" loading="lazy" width="150" height="100" />
-          </div>
-          <div class="insurance-slide">
-            <img src="{% static 'assets/img/logo/logo7.webp' %}" alt="Anthem Insurance" loading="lazy" width="150" height="100" />
-          </div>
-          <div class="insurance-slide">
-            <img src="{% static 'assets/img/logo/logo8.webp' %}" alt="Molina Healthcare" loading="lazy" width="150" height="100" />
-          </div>
-          <div class="insurance-slide">
-            <img src="{% static 'assets/img/logo/logo9.webp' %}" alt="Medicare Insurance" loading="lazy" width="150" height="100" />
-          </div>
-          <div class="insurance-slide">
-            <img src="{% static 'assets/img/logo/logo1.webp' %}" alt="Medicaid Insurance" loading="lazy" width="150" height="100" />
-          </div>
-          <div class="insurance-slide">
-            <img src="{% static 'assets/img/logo/logo11.png' %}" alt="Tricare Insurance" loading="lazy" width="150" height="100" />
-          </div>
-          <div class="insurance-slide">
-            <img src="{% static 'assets/img/logo/logo12.webp' %}" alt="Optum Insurance" loading="lazy" width="150" height="100" />
-          </div>
-          <div class="insurance-slide">
-            <img src="{% static 'assets/img/logo/logo13.png' %}" alt="WellCare Insurance" loading="lazy" width="150" height="100" />
-          </div>
-          <div class="insurance-slide">
-            <img src="{% static 'assets/img/logo/logo14.png' %}" alt="Centene Insurance" loading="lazy" width="150" height="100" />
-          </div>
-        </div>
-        
-        <div class="insurance-controls">
-          <button class="insurance-btn insurance-prev" onclick="insuranceSlider.prev()">
-            <i class="bi bi-chevron-left"></i>
-          </button>
-          <button class="insurance-btn insurance-next" onclick="insuranceSlider.next()">
-            <i class="bi bi-chevron-right"></i>
-          </button>
         </div>
       </div>
     </div>
