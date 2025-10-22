@@ -51,18 +51,21 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 'compressor',  # Uncomment when django-compressor is installed
     'app',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',  # Move after SecurityMiddleware
+    'apex.middleware.CacheControlMiddleware',  # Custom cache control
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'apex.middleware.SecurityHeadersMiddleware',  # Custom security headers
 ]
 
 ROOT_URLCONF = 'apex.urls'
@@ -189,3 +192,16 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+# Django Compressor Settings (Uncomment when django-compressor is installed)
+# COMPRESS_ENABLED = True
+# COMPRESS_OFFLINE = True  # Pre-compress on collectstatic
+# COMPRESS_CSS_FILTERS = [
+#     'compressor.filters.css_default.CssAbsoluteFilter',
+#     'compressor.filters.cssmin.rCSSMinFilter',
+# ]
+# COMPRESS_JS_FILTERS = [
+#     'compressor.filters.jsmin.rJSMinFilter',
+# ]
+# STATICFILES_FINDERS += [
+#     'compressor.finders.CompressorFinder',
+# ]

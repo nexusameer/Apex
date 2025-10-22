@@ -15,7 +15,12 @@
   <!-- Resource hints for faster loading -->
   <link rel="dns-prefetch" href="//fonts.googleapis.com" />
   <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+  <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+  <link rel="dns-prefetch" href="//www.google-analytics.com" />
+  <link rel="dns-prefetch" href="//connect.facebook.net" />
+  <link rel="dns-prefetch" href="//scripts.clarity.ms" />
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preload" href="{% static 'assets/js/main.js' %}" as="script" />
 
   <!-- Preload LCP image for fastest loading - correct hero images -->
@@ -60,9 +65,9 @@
     }
   </style>
 
-  <!-- Critical CSS inline for immediate render - Only minimal preloader CSS -->
+  <!-- Critical CSS inline for immediate render -->
   <style>
-    /* Minimal preloader to prevent FOUC - all other CSS moved to main.css */
+    /* Minimal preloader to prevent FOUC */
     .content-hidden {
       visibility: hidden;
     }
@@ -95,10 +100,124 @@
         transform: rotate(360deg);
       }
     }
+
+    /* Critical above-the-fold CSS */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Roboto", system-ui, -apple-system, sans-serif;
+      color: #2c3031;
+      background: #ffffff;
+      line-height: 1.6;
+    }
+
+    .header {
+      background: #ffffff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 999;
+      padding: 15px 0;
+    }
+
+    .header-container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      gap: 10px;
+    }
+
+    .logo img {
+      width: 40px;
+      height: 40px;
+    }
+
+    .sitename {
+      color: #049ebb !important;
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin: 0;
+    }
+
+    .btn-getstarted {
+      background: #049ebb;
+      color: #ffffff;
+      padding: 10px 25px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .btn-getstarted:hover {
+      background: #037a91;
+    }
+
+    /* Hero section critical styles */
+    .hero {
+      padding: 100px 0 60px;
+      min-height: 500px;
+    }
+
+    /* Footer critical styles */
+    .footer {
+      background: #f8f9fa;
+      padding: 40px 0 20px;
+      margin-top: 60px;
+    }
+
+    /* Utility classes */
+    .d-flex {
+      display: flex !important;
+    }
+
+    .align-items-center {
+      align-items: center !important;
+    }
+
+    .justify-content-between {
+      justify-content: space-between !important;
+    }
+
+    .container,
+    .container-xl {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    .position-relative {
+      position: relative !important;
+    }
+
+    .position-fixed {
+      position: fixed !important;
+    }
+
+    .fixed-top {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      z-index: 1030;
+    }
   </style>
 
-  <!-- Load ESSENTIAL CSS immediately to prevent FOUC -->
-  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" />
+  <!-- Load ESSENTIAL CSS with optimized strategy -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" /></noscript>
   <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
 
   <!-- Smart CSS loading - defer only non-critical CSS -->
@@ -200,17 +319,20 @@
     <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet" />
     <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet" />
   </noscript>
-  <!-- Google Tag Manager -->
+  <!-- Google Tag Manager - Deferred for better performance -->
   <script>
       ; (function (w, d, s, l, i) {
         w[l] = w[l] || []
         w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' })
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != 'dataLayer' ? '&l=' + l : ''
-        j.async = true
-        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl
-        f.parentNode.insertBefore(j, f)
+        // Defer GTM loading
+        window.addEventListener('load', function() {
+          var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != 'dataLayer' ? '&l=' + l : ''
+          j.async = true
+          j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl
+          f.parentNode.insertBefore(j, f)
+        })
       })(window, document, 'script', 'dataLayer', 'GTM-N9RBKBL7')
   </script>
   <!-- End Google Tag Manager -->
